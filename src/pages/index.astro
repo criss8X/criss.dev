@@ -1,5 +1,6 @@
 ---
-
+import Button from "@/components/ui/button.astro";
+import Card from "@/components/ui/card.astro";
 ---
 
 <html lang="en">
@@ -14,5 +15,23 @@
 	</head>
 	<body>
 		<h1 class="text-3xl">Astro</h1>
+
+		<Button variant="default">Button</Button>
+
+		<Card className="w-[400px]">
+			<Card variant="header">
+				<Card variant="title">Title</Card>
+				<Card variant="description">Description</Card>
+			</Card>
+
+			<Card variant="content" />
+
+			<Card variant="footer">
+				<Card variant="action">
+					<Button variant="ghost">Cancel</Button>
+					<Button variant="default">Save</Button>
+				</Card>
+			</Card>
+		</Card>
 	</body>
 </html>
