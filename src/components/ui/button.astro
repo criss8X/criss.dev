@@ -46,6 +46,6 @@ interface Props {
 const { variant, size, className } = Astro.props as Props;
 ---
 
-<button class={cn(buttonVariants({ variant, size }), className)}>
+<button class={cn(buttonVariants({ variant, size, className }))}>
   <slot />
 </button>

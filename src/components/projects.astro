@@ -5,7 +5,15 @@ import Button from "./ui/button.astro";
 import Card from "./ui/card.astro";
 import LinkButton from "./ui/link-button.astro";
 
-const projects = [
+type Project = {
+  name: string;
+  desc: string;
+  stack: string[];
+  github: string;
+  preview?: string;
+};
+
+const projects: Project[] = [
   {
     name: "Force4G",
     desc: "Aplicación para forzar la 4G del teléfono que ocupa menos de 250 KB",
@@ -43,30 +51,29 @@ const projects = [
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        projects.map((p) => (
-          <Card className="group relative bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 hover:border-purple-400/50 transition-all duration-300 overflow-hidden">
+        projects.map(({ name, desc, stack, github, preview }) => (
+          <Card className="group relative bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 hover:border-purple-400/50 transition-all duration-300 overflow-hidden h-max">
             <Card variant="header">
               <Card
                 variant="title"
                 className="flex items-center justify-between  text-lg relative z-10"
               >
-                {p.name}
-                <ExternalLink class="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
+                {name}
               </Card>
 
               <Card variant="description" className="relative z-10 text-left">
-                {p.desc}
+                {desc}
               </Card>
             </Card>
 
             <Card variant="content" className="relative z-10">
               <div class="flex flex-wrap gap-1 mb-4">
-                {p.stack.map((s) => (
+                {stack.map((label) => (
                   <Badge
                     variant="outline"
                     className="text-xs border-purple-400/30 text-purple-300"
                   >
-                    {s}
+                    {label}
                   </Badge>
                 ))}
               </div>
@@ -75,21 +82,25 @@ const projects = [
                 <LinkButton
                   size="sm"
                   variant="outline"
-                  href={p.github || "#"}
+                  href={github}
                   target="_blank"
-                  className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors"
+                  className="dark:border-purple-400/50 dark:text-purple-300 dark:bg-transparent dark:hover:bg-purple-400/20 dark:hover:border-purple-400/70 dark:hover:text-purple-200 transition-colors"
                 >
                   <Github class="h-4 w-4 mr-1" />
-                  Código
+                  Github
                 </LinkButton>
 
-                <Button
-                  size="sm"
-                  className="bg-purple-600 hover:bg-purple-500 transition-colors"
-                >
-                  <ExternalLink class="h-4 w-4 mr-1" />
-                  Demo
-                </Button>
+                {preview && (
+                  <LinkButton
+                    size="sm"
+                    href={preview}
+                    target="_blank"
+                    className="bg-purple-600 hover:bg-purple-500 transition-colors"
+                  >
+                    <ExternalLink class="h-4 w-4 mr-1" />
+                    Preview
+                  </LinkButton>
+                )}
               </div>
             </Card>
           </Card>
