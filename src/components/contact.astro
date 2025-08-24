@@ -1,12 +1,12 @@
 ---
-import { Github, Linkedin, Mail } from "./icon.astro";
+import { Github, Linkedin, Mail } from "@/components/icon.astro";
 import Card from "./ui/card.astro";
 import LinkButton from "./ui/link-button.astro";
 ---
 
 <section id="contact" class="container mx-auto max-w-4xl px-4 py-20">
   <div class="text-center space-y-8">
-    <h2 class="font-console text-3xl md:text-4xl font-bold">
+    <h2 class="text-3xl md:text-4xl font-bold">
       <span class="text-purple-400">// </span>Contacto
     </h2>
 
@@ -15,7 +15,7 @@ import LinkButton from "./ui/link-button.astro";
     >
       <Card variant="content" className="pt-8 pb-8">
         <div class="space-y-6">
-          <div class="font-console text-sm text-purple-400 mb-4">
+          <div class="text-sm text-purple-400 mb-4">
             {"~/contact $ let's_collaborate"}
           </div>
 
@@ -28,7 +28,7 @@ import LinkButton from "./ui/link-button.astro";
             <LinkButton
               href="mailto:carralerocristianx@gmail.com"
               variant="outline"
-              className="bg-purple-600 hover:bg-purple-500 transition-colors"
+              className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors"
             >
               <Mail class="h-4 w-4 mr-2" />
               Email
