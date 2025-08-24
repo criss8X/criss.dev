@@ -10,7 +10,7 @@ interface Props {
 const { id, title, className } = Astro.props;
 ---
 
-<section id="about" class={cn("container mx-auto px-4 py-20", className)}>
+<section id={id} class={cn("container mx-auto px-4 py-20", className)}>
   <div class="text-center space-y-12">
     <h2 class="text-3xl md:text-4xl font-bold">
       <span class="text-purple-400">// </span>{title}
