@@ -1,6 +1,6 @@
 ---
 import Card from "@ui/card.astro";
-import { Github, Linkedin, Mail } from "@ui/icon.astro";
+import { ArrowRight, Clock, Github, Linkedin, Mail } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
 import Section from "@/components/section.astro";
 ---
@@ -10,21 +10,35 @@ import Section from "@/components/section.astro";
     <Card variant="content" className="pt-8 pb-8">
       <div class="space-y-6">
         <div class="text-sm text-purple-400 mb-4">
-          {"~/contact $ let's_collaborate"}
+          {"~/contact $ let's_build_something_amazing"}
         </div>
 
         <p class="text-lg text-muted-foreground">
-          ¿Tienes un proyecto en mente? Me encantaría colaborar contigo y crear
-          algo increíble juntos.
+          Tengo <strong class="highlight">disponibilidad inmediata</strong> para
+          proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.
         </p>
+
+        <div
+          class="flex items-center justify-center gap-2 text-sm text-muted-foreground"
+        >
+          <Clock class="h-4 w-4 text-green-400" />
+
+          <span class="leading-relaxed"
+            >Respuesta garantizada en menos de 24 horas</span
+          >
+        </div>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <LinkButton
-            variant="default"
             href="mailto:carralerocristianx@gmail.com"
+            className="group"
           >
-            <Mail class="h-4 w-4 mr-2" />
-            Email
+            <Mail class="h-4 w-4" />
+            Enviar un mensaje
+
+            <ArrowRight
+              class="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform"
+            />
           </LinkButton>
 
           <LinkButton
