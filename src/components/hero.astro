@@ -1,6 +1,6 @@
 ---
+import LinkButton from "@/components/ui/link-button.astro";
 import Badge from "./ui/badge.astro";
-import LinkButton from "./ui/link-button.astro";
 
 const keywordSkills = [
   "TypeScript",
@@ -49,20 +49,9 @@ const keywordSkills = [
     </div>
 
     <div class="flex flex-col sm:flex-row gap-4 pt-6">
-      <LinkButton
-        size="lg"
-        href="#projects"
-        className="dark:bg-purple-600 dark:hover:bg-purple-500 bg-purple-600 hover:bg-purple-500 transition-colors"
-      >
-        Ver Proyectos
-      </LinkButton>
+      <LinkButton size="lg" href="#projects">Ver Proyectos</LinkButton>
 
-      <LinkButton
-        variant="outline"
-        size="lg"
-        href="#contact"
-        className="dark:border-purple-400/50 text-purple-300 dark:bg-transparent dark:hover:bg-purple-400/20 dark:hover:border-purple-400/70 dark:hover:text-purple-200 transition-colors"
-      >
+      <LinkButton variant="outline" size="lg" href="#contact">
         Contactar
       </LinkButton>
     </div>
