@@ -1,49 +1,42 @@
 ---
 import Card from "@ui/card.astro";
 import { Clock, MapPin } from "@ui/icon.astro";
+import Section from "@/components/section.astro";
+import { parseHighlightsFromParagraph } from "@/lib/markdown";
+
+const aboutMeParagraph = `Con **4 años de experiencia** en ingeniería de software,
+he perfeccionado un enfoque único que combina **metodologías ágiles** con **tecnologías
+de vanguardia**. Mi especialidad es crear soluciones que no solo funcionan,
+sino que escalan y generan valor real para el negocio.`;
+
+const paragraphHtml = parseHighlightsFromParagraph(aboutMeParagraph);
 ---
 
-<section id="about" class="container mx-auto max-w-4xl px-4 py-20">
-  <div class="text-center space-y-8">
-    <h2 class="text-3xl md:text-4xl font-bold">
-      <span class="text-purple-400">// </span>Sobre mí
-    </h2>
+<Section id="about" title="Sobre mí" className="max-w-4xl">
+  <Card className="bg-card/50 backdrop-blur border-border/50">
+    <Card variant="content" className="pt-8 pb-8">
+      <div class="space-y-6">
+        <p
+          class="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto"
+          set:html={paragraphHtml}
+        />
 
-    <Card className="bg-card/50 backdrop-blur border-border/50">
-      <Card variant="content" className="pt-8 pb-8">
-        <div class="space-y-6">
-          <p
-            class="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto"
-          >
-            Con <strong class="text-purple-200 font-semibold"
-              >4 años de experiencia</strong
-            > en ingeniería de software, he perfeccionado un enfoque único que combina{
-              " "
-            }
-            <strong class="text-purple-200 font-semibold"
-              >metodologías ágiles</strong
-            > con
-            <strong class="text-purple-200 font-semibold"
-              >tecnologías de vanguardia</strong
-            >. Mi especialidad es crear soluciones que no solo funcionan, sino
-            que escalan y generan valor real para el negocio.
-          </p>
+        <div
+          class="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground"
+        >
+          <div class="flex items-center gap-2">
+            <MapPin class="h-4 w-4 text-purple-400" />
 
-          <div
-            class="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground"
-          >
-            <div class="flex items-center gap-2">
-              <MapPin class="h-4 w-4 text-purple-400" />
-              <span>Puerto Padre, Las Tunas, Cuba</span>
-            </div>
+            <span>Puerto Padre, Las Tunas, Cuba</span>
+          </div>
 
-            <div class="flex items-center gap-2">
-              <Clock class="h-4 w-4 text-purple-400" />
-              <span>GMT-5 (Flexible)</span>
-            </div>
+          <div class="flex items-center gap-2">
+            <Clock class="h-4 w-4 text-purple-400" />
+
+            <span>GMT-5 (Flexible)</span>
           </div>
         </div>
-      </Card>
+      </div>
     </Card>
-  </div>
-</section>
+  </Card>
+</Section>

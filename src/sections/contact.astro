@@ -2,59 +2,52 @@
 import Card from "@ui/card.astro";
 import { Github, Linkedin, Mail } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
+import Section from "@/components/section.astro";
 ---
 
-<section id="contact" class="container mx-auto max-w-4xl px-4 py-20">
-  <div class="text-center space-y-8">
-    <h2 class="text-3xl md:text-4xl font-bold">
-      <span class="text-purple-400">// </span>Contacto
-    </h2>
-
-    <Card
-      className="bg-card/50 backdrop-blur border-border/50 max-w-2xl mx-auto"
-    >
-      <Card variant="content" className="pt-8 pb-8">
-        <div class="space-y-6">
-          <div class="text-sm text-purple-400 mb-4">
-            {"~/contact $ let's_collaborate"}
-          </div>
-
-          <p class="text-lg text-muted-foreground">
-            ¿Tienes un proyecto en mente? Me encantaría colaborar contigo y
-            crear algo increíble juntos.
-          </p>
-
-          <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <LinkButton
-              variant="default"
-              href="mailto:carralerocristianx@gmail.com"
-            >
-              <Mail class="h-4 w-4 mr-2" />
-              Email
-            </LinkButton>
-
-            <LinkButton
-              href="https://www.linkedin.com/in/carralerocristianx/"
-              target="_blank"
-              variant="outline"
-            >
-              <Linkedin class="h-4 w-4 mr-2" />
-
-              LinkedIn
-            </LinkButton>
-
-            <LinkButton
-              href="https://github.com/criss8X"
-              target="_blank"
-              variant="outline"
-            >
-              <Github class="h-4 w-4 mr-2" />
-
-              GitHub
-            </LinkButton>
-          </div>
+<Section id="contact" title="Contacto" className="max-w-4xl">
+  <Card className="bg-card/50 backdrop-blur border-border/50 max-w-2xl mx-auto">
+    <Card variant="content" className="pt-8 pb-8">
+      <div class="space-y-6">
+        <div class="text-sm text-purple-400 mb-4">
+          {"~/contact $ let's_collaborate"}
         </div>
-      </Card>
+
+        <p class="text-lg text-muted-foreground">
+          ¿Tienes un proyecto en mente? Me encantaría colaborar contigo y crear
+          algo increíble juntos.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+          <LinkButton
+            variant="default"
+            href="mailto:carralerocristianx@gmail.com"
+          >
+            <Mail class="h-4 w-4 mr-2" />
+            Email
+          </LinkButton>
+
+          <LinkButton
+            href="https://www.linkedin.com/in/carralerocristianx/"
+            target="_blank"
+            variant="outline"
+          >
+            <Linkedin class="h-4 w-4 mr-2" />
+
+            LinkedIn
+          </LinkButton>
+
+          <LinkButton
+            href="https://github.com/criss8X"
+            target="_blank"
+            variant="outline"
+          >
+            <Github class="h-4 w-4 mr-2" />
+
+            GitHub
+          </LinkButton>
+        </div>
+      </div>
     </Card>
-  </div>
-</section>
+  </Card>
+</Section>

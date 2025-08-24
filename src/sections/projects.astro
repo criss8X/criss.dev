@@ -3,6 +3,7 @@ import Badge from "@ui/badge.astro";
 import Card from "@ui/card.astro";
 import { ExternalLink, Github } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
+import Section from "@/components/section.astro";
 
 type Project = {
   name: string;
@@ -42,66 +43,60 @@ const projects: Project[] = [
 ];
 ---
 
-<section id="projects" class="container mx-auto max-w-6xl px-4 py-20">
-  <div class="text-center space-y-12">
-    <h2 class="text-3xl md:text-4xl font-bold">
-      <span class="text-purple-400">// </span>Proyectos Destacados
-    </h2>
+<Section id="projects" title="Proyectos Destacados" className="max-w-6xl">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      projects.map(({ name, desc, stack, github, preview }) => (
+        <Card className="group relative bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 hover:border-purple-400/50 transition-all duration-300 overflow-hidden">
+          {/* Shine effect */}
+          <div
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none project-glow"
+            style={{
+              background: `linear-gradient(to top, rgba(147, 51, 234, 0.2) 0%, rgba(168, 85, 247, 0.15) 30%, transparent 70%)`,
+            }}
+          />
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        projects.map(({ name, desc, stack, github, preview }) => (
-          <Card className="group relative bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 hover:border-purple-400/50 transition-all duration-300 overflow-hidden">
-            {/* Shine effect */}
-            <div
-              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none project-glow"
-              style={{
-                background: `linear-gradient(to top, rgba(147, 51, 234, 0.2) 0%, rgba(168, 85, 247, 0.15) 30%, transparent 70%)`,
-              }}
-            />
-
-            <Card variant="header">
-              <Card
-                variant="title"
-                className="flex items-center justify-between  text-lg relative z-10"
-              >
-                {name}
-              </Card>
-
-              <Card variant="description" className="relative z-10 text-left">
-                {desc}
-              </Card>
+          <Card variant="header">
+            <Card
+              variant="title"
+              className="flex items-center justify-between  text-lg relative z-10"
+            >
+              {name}
             </Card>
 
-            <Card variant="content" className="relative z-10">
-              <div class="flex flex-wrap gap-1 mb-4">
-                {stack.map((label) => (
-                  <Badge variant="outline">{label}</Badge>
-                ))}
-              </div>
-
-              <div class="flex gap-2">
-                <LinkButton
-                  size="sm"
-                  variant="outline"
-                  href={github}
-                  target="_blank"
-                >
-                  <Github class="h-4 w-4 mr-1" />
-                  Github
-                </LinkButton>
-
-                {preview && (
-                  <LinkButton size="sm" href={preview} target="_blank">
-                    <ExternalLink class="h-4 w-4 mr-1" />
-                    Preview
-                  </LinkButton>
-                )}
-              </div>
+            <Card variant="description" className="relative z-10 text-left">
+              {desc}
             </Card>
           </Card>
-        ))
-      }
-    </div>
+
+          <Card variant="content" className="relative z-10">
+            <div class="flex flex-wrap gap-1 mb-4">
+              {stack.map((label) => (
+                <Badge variant="outline">{label}</Badge>
+              ))}
+            </div>
+
+            <div class="flex gap-2">
+              <LinkButton
+                size="sm"
+                variant="outline"
+                href={github}
+                target="_blank"
+              >
+                <Github class="h-4 w-4 mr-1" />
+                Github
+              </LinkButton>
+
+              {preview && (
+                <LinkButton size="sm" href={preview} target="_blank">
+                  <ExternalLink class="h-4 w-4 mr-1" />
+                  Preview
+                </LinkButton>
+              )}
+            </div>
+          </Card>
+        </Card>
+      ))
+    }
   </div>
-</section>
+</Section>

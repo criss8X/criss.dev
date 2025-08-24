@@ -132,6 +132,10 @@
 	}
 }
 
+.highlight {
+	@apply text-purple-200 font-semibold;
+}
+
 /* Subtle grid pattern with animation */
 .grid-pattern {
 	position: relative;
