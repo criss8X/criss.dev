@@ -5,7 +5,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@ui/*": ["./src/components/ui/*"],
+			"@shadcn/*": ["./src/components/shadcn/*"]
 		}
 	}
 }
