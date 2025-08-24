@@ -1,6 +1,6 @@
 ---
 import Card from "@ui/card.astro";
-import { MapPin } from "@ui/icon.astro";
+import { Clock, MapPin } from "@ui/icon.astro";
 ---
 
 <section id="about" class="container mx-auto max-w-4xl px-4 py-20">
@@ -15,26 +15,31 @@ import { MapPin } from "@ui/icon.astro";
           <p
             class="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto"
           >
-            Después de cuatro años en el fascinante mundo de la ingeniería de
-            software, he desarrollado mis propios métodos de aprendizaje que me
-            permiten dominar rápidamente nuevas tecnologías. Utilizo agentes de
-            código para optimizar procesos, que luego adapto y mejoro basándome
-            en mi conocimiento.
+            Con <strong class="text-purple-200 font-semibold"
+              >4 años de experiencia</strong
+            > en ingeniería de software, he perfeccionado un enfoque único que combina{
+              " "
+            }
+            <strong class="text-purple-200 font-semibold"
+              >metodologías ágiles</strong
+            > con
+            <strong class="text-purple-200 font-semibold"
+              >tecnologías de vanguardia</strong
+            >. Mi especialidad es crear soluciones que no solo funcionan, sino
+            que escalan y generan valor real para el negocio.
           </p>
-          <p
-            class="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto"
-          >
-            Cuando trabajo en equipo, busco puntos en común para ser más
-            eficiente y evitar el caos. Me gusta escribir código limpio y
-            legible, preferiblemente explícito.
-          </p>
+
           <div
             class="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground"
           >
             <div class="flex items-center gap-2">
               <MapPin class="h-4 w-4 text-purple-400" />
-
               <span>Puerto Padre, Las Tunas, Cuba</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <Clock class="h-4 w-4 text-purple-400" />
+              <span>GMT-5 (Flexible)</span>
             </div>
           </div>
         </div>

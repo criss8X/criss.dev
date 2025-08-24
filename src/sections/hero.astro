@@ -1,5 +1,6 @@
 ---
 import Badge from "@ui/badge.astro";
+import { ArrowRight } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
 
 const keywordSkills = [
@@ -49,10 +50,16 @@ const keywordSkills = [
     </div>
 
     <div class="flex flex-col sm:flex-row gap-4 pt-6">
-      <LinkButton size="lg" href="#projects">Ver Proyectos</LinkButton>
+      <LinkButton size="lg" href="#contact" className="group">
+        <span class="leading-relaxed">Trabajemos juntos</span>
 
-      <LinkButton variant="outline" size="lg" href="#contact">
-        Contactar
+        <ArrowRight
+          class="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform"
+        />
+      </LinkButton>
+
+      <LinkButton variant="outline" size="lg" href="#projects">
+        Ver mi trabajo
       </LinkButton>
     </div>
   </div>
