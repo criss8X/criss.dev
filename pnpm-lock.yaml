@@ -26,6 +26,9 @@ importers:
       lucide-react:
         specifier: ^0.541.0
         version: 0.541.0(react@19.1.1)
+      lucide-static:
+        specifier: ^0.541.0
+        version: 0.541.0
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -1078,6 +1081,9 @@ packages:
     resolution: {integrity: sha512-s0Vircsu5WaGv2KoJZ5+SoxiAJ3UXV5KqEM3eIFDHaHkcLIFdIWgXtZ412+Gh02UsdS7Was+jvEpBvPCWQISlg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  lucide-static@0.541.0:
+    resolution: {integrity: sha512-4ZII336adSatb5bSuD2GHNVp4LQWuVhMZlUlqt1j9lOb2ERpf0Kmja4ep4x+0QY59d+qsR9xstzZPNJ/kM3DoQ==}
 
   magic-string@0.30.18:
     resolution: {integrity: sha512-yi8swmWbO17qHhwIBNeeZxTceJMeBvWJaId6dyvTSOwTipqeHhMhOrz6513r1sOKnpvQ7zkhlG8tPrpilwTxHQ==}
@@ -2738,6 +2744,8 @@ snapshots:
   lucide-react@0.541.0(react@19.1.1):
     dependencies:
       react: 19.1.1
+
+  lucide-static@0.541.0: {}
 
   magic-string@0.30.18:
     dependencies:

@@ -1,0 +1,43 @@
+---
+import { Github, Linkedin, Mail } from "./icon.astro";
+import LinkButton from "./ui/link-button.astro";
+---
+
+<footer class="border-t border-border/50 py-8 mt-20">
+  <div class="container mx-auto max-w-6xl px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+    >
+      <p
+        class="font-console text-sm text-muted-foreground text-center md:text-left"
+      >
+        © 2024 Cristian Carralero García. Hecho con ❤️ y mucho código.
+      </p>
+      <div class="flex items-center space-x-6">
+        <LinkButton
+          variant="ghost"
+          href="https://github.com/criss8X"
+          className="text-muted-foreground hover:text-purple-400 transition-colors"
+        >
+          <Github class="h-5 w-5" />
+        </LinkButton>
+
+        <LinkButton
+          variant="ghost"
+          href="https://www.linkedin.com/in/carralerocristianx/"
+          className="text-muted-foreground hover:text-purple-400 transition-colors"
+        >
+          <Linkedin class="h-5 w-5" />
+        </LinkButton>
+
+        <LinkButton
+          variant="ghost"
+          href="mailto:carralerocristianx@gmail.com"
+          className="text-muted-foreground hover:text-purple-400 transition-colors"
+        >
+          <Mail class="h-5 w-5" />
+        </LinkButton>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,73 @@
+---
+import Badge from "./ui/badge.astro";
+import LinkButton from "./ui/link-button.astro";
+
+const keywordSkills = [
+  "TypeScript",
+  "React",
+  "Solidity",
+  "Rust",
+  "Next.js",
+  "PostgreSQL",
+  "Tailwind CSS",
+];
+---
+
+<section class="container mx-auto max-w-6xl px-4 py-24 md:py-32">
+  <div class="flex flex-col items-center text-center space-y-8">
+    <div class="space-y-6">
+      <div class="font-console text-sm text-purple-400 mb-4">
+        {"~/portfolio $ whoami"}
+      </div>
+
+      <h1
+        class="font-console text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+      >
+        <span class="text-purple-400">{">"}</span>
+        <span class="text-foreground">Cristian</span>
+        <br />
+        <span class="text-purple-400">{">"}</span>
+        <span class="text-foreground">Carralero</span>
+      </h1>
+
+      <p
+        class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+      >
+        <span class="text-purple-300 font-console"
+          >Frontend • Backend • Web3</span
+        >
+        <br />
+        Desarrollador Full Stack especializado en tecnologías modernas y blockchain
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-3 justify-center max-w-3xl">
+      {
+        keywordSkills.map((tech) => (
+          <Badge variant="secondary" className="text-sm px-3 py-1">
+            {tech}
+          </Badge>
+        ))
+      }
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+      <LinkButton
+        size="lg"
+        href="#projects"
+        className="bg-purple-600 hover:bg-purple-500 transition-colors"
+      >
+        Ver Proyectos
+      </LinkButton>
+
+      <LinkButton
+        variant="outline"
+        size="lg"
+        href="#contact"
+        className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70hover:text-purple-200 transition-colors"
+      >
+        Contactar
+      </LinkButton>
+    </div>
+  </div>
+</section>

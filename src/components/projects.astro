@@ -1,0 +1,100 @@
+---
+import { ExternalLink, Github } from "./icon.astro";
+import Badge from "./ui/badge.astro";
+import Button from "./ui/button.astro";
+import Card from "./ui/card.astro";
+import LinkButton from "./ui/link-button.astro";
+
+const projects = [
+  {
+    name: "Force4G",
+    desc: "Aplicación para forzar la 4G del teléfono que ocupa menos de 250 KB",
+    stack: ["Kotlin", "Mobile Dev"],
+    github: "https://github.com/criss8X/Force4G",
+  },
+  {
+    name: "Mirage",
+    desc: "Cliente web simple, ligero y personalizable para el protocolo Matrix con interfaz limpia y fácil de usar",
+    stack: [
+      "TypeScript",
+      "React",
+      "SCSS/SASS",
+      "Matrix JS SDK",
+      "Vite.js",
+      "Zustand",
+      "Storybook.js",
+    ],
+    github: "https://github.com/yuri-xyz/mirage",
+  },
+  {
+    name: "ERC20 Vault",
+    desc: "Contrato inteligente para almacenamiento seguro de tokens ERC20 con funcionalidades de depósito y retiro",
+    stack: ["Solidity", "Ethereum", "Smart Contracts", "Web3"],
+    github: "https://github.com/yuri-xyz/erc20-vault",
+  },
+];
+---
+
+<section id="projects" class="container mx-auto max-w-6xl px-4 py-20">
+  <div class="text-center space-y-12">
+    <h2 class="font-console text-3xl md:text-4xl font-bold">
+      <span class="text-purple-400">// </span>Proyectos Destacados
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map((p) => (
+          <Card className="group relative bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 hover:border-purple-400/50 transition-all duration-300 overflow-hidden">
+            <Card variant="header">
+              <Card
+                variant="title"
+                className="flex items-center justify-between font-console text-lg relative z-10"
+              >
+                {p.name}
+                <ExternalLink class="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
+              </Card>
+
+              <Card variant="description" className="relative z-10 text-left">
+                {p.desc}
+              </Card>
+            </Card>
+
+            <Card variant="content" className="relative z-10">
+              <div class="flex flex-wrap gap-1 mb-4">
+                {p.stack.map((s) => (
+                  <Badge
+                    variant="outline"
+                    className="text-xs border-purple-400/30 text-purple-300"
+                  >
+                    {s}
+                  </Badge>
+                ))}
+              </div>
+
+              <div class="flex gap-2">
+                <LinkButton
+                  size="sm"
+                  variant="outline"
+                  href={p.github || "#"}
+                  target="_blank"
+                  className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors"
+                >
+                  <Github class="h-4 w-4 mr-1" />
+                  Código
+                </LinkButton>
+
+                <Button
+                  size="sm"
+                  className="bg-purple-600 hover:bg-purple-500 transition-colors"
+                >
+                  <ExternalLink class="h-4 w-4 mr-1" />
+                  Demo
+                </Button>
+              </div>
+            </Card>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>

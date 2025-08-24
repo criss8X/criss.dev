@@ -1,0 +1,46 @@
+---
+import { cn } from "@/lib/utils";
+import Badge from "./ui/badge.astro";
+import Card from "./ui/card.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  stack: string[];
+  className?: string;
+}
+
+const { title, description, stack, className } = Astro.props as Props;
+---
+
+<Card
+  className={cn(
+    "bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 transition-all duration-300",
+    className,
+  )}
+>
+  <Card variant="header" className="text-center">
+    <Card
+      variant="title"
+      className="flex items-center justify-center gap-3 font-console text-xl"
+    >
+      <slot name="icon" />
+
+      {title}
+    </Card>
+
+    <Card variant="description" className="text-base">{description}</Card>
+  </Card>
+
+  <Card variant="content">
+    <div class="flex flex-wrap gap-2 justify-center">
+      {
+        stack.map((item) => (
+          <Badge className="bg-purple-600/20 text-purple-300 border-purple-600/30 hover:bg-purple-600/30 hover:text-purple-200 transition-colors cursor-pointer">
+            {item}
+          </Badge>
+        ))
+      }
+    </div>
+  </Card>
+</Card>

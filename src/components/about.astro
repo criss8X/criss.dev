@@ -1,0 +1,42 @@
+---
+import Card from "@/components/ui/card.astro";
+---
+
+<section id="about" class="container mx-auto max-w-4xl px-4 py-20">
+  <div class="text-center space-y-8">
+    <h2 class="font-console text-3xl md:text-4xl font-bold">
+      <span class="text-purple-400">// </span>Sobre mí
+    </h2>
+
+    <Card className="bg-card/50 backdrop-blur border-border/50">
+      <Card variant="content" className="pt-8 pb-8">
+        <div class="space-y-6">
+          <p
+            class="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto"
+          >
+            Después de cuatro años en el fascinante mundo de la ingeniería de
+            software, he desarrollado mis propios métodos de aprendizaje que me
+            permiten dominar rápidamente nuevas tecnologías. Utilizo agentes de
+            código para optimizar procesos, que luego adapto y mejoro basándome
+            en mi conocimiento.
+          </p>
+          <p
+            class="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto"
+          >
+            Cuando trabajo en equipo, busco puntos en común para ser más
+            eficiente y evitar el caos. Me gusta escribir código limpio y
+            legible, preferiblemente explícito.
+          </p>
+          <div
+            class="flex items-center justify-center gap-6 pt-4 text-sm text-muted-foreground"
+          >
+            <div class="flex items-center gap-2">
+              <!-- <MapPin class="h-4 w-4 text-purple-400" /> -->
+              <span>Puerto Padre, Las Tunas, Cuba</span>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </Card>
+  </div>
+</section>

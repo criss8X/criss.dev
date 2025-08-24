@@ -1,9 +1,14 @@
 ---
-import Button from "@/components/ui/button.astro";
-import Card from "@/components/ui/card.astro";
+import About from "@/components/about.astro";
+import Contact from "@/components/contact.astro";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import Hero from "@/components/hero.astro";
+import Projects from "@/components/projects.astro";
+import Skills from "@/components/skills.astro";
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -13,25 +18,20 @@ import Card from "@/components/ui/card.astro";
 
 		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
-	<body>
-		<h1 class="text-3xl">Astro</h1>
 
-		<Button variant="default">Button</Button>
+	<body class="min-h-screen bg-background text-foreground">
+		<Header />
 
-		<Card className="w-[400px]">
-			<Card variant="header">
-				<Card variant="title">Title</Card>
-				<Card variant="description">Description</Card>
-			</Card>
+		<Hero />
 
-			<Card variant="content" />
+		<About />
 
-			<Card variant="footer">
-				<Card variant="action">
-					<Button variant="ghost">Cancel</Button>
-					<Button variant="default">Save</Button>
-				</Card>
-			</Card>
-		</Card>
+		<Skills />
+
+		<Projects />
+
+		<Contact />
+
+		<Footer />
 	</body>
 </html>

@@ -30,6 +30,10 @@ const { className, variant } = Astro.props as Props;
 const dataSlot = variant === "root" ? "card" : `card-${variant}`;
 ---
 
-<div data-slot={dataSlot} class={cn(cardVariants({ variant }), className)}>
+<div
+  data-slot={dataSlot}
+  class={cn(cardVariants({ variant }), className)}
+  onmousemove=""
+>
   <slot />
 </div>

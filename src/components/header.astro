@@ -1,0 +1,36 @@
+---
+const navItems = ["about", "skills", "projects", "contact"];
+---
+
+<header
+  class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+>
+  <div
+    class="container mx-auto max-w-6xl flex h-16 items-center justify-center px-4"
+  >
+    <div class="flex items-center justify-between w-full">
+      <a class="flex items-center space-x-2" href="/">
+        <!-- <Terminal class="h-6 w-6 text-purple-400" /> -->
+
+        <span class="font-console text-xl font-bold text-purple-400">
+          {"<cristian.dev/>"}
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        {
+          navItems.map((id) => (
+            <a
+              href={`#${id}`}
+              class="transition-colors hover:text-purple-400 text-muted-foreground"
+            >
+              {id === "about"
+                ? "Sobre mí"
+                : id.charAt(0).toUpperCase() + id.slice(1)}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</header>

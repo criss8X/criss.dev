@@ -1,0 +1,26 @@
+---
+import {
+  type ButtonSize,
+  type ButtonVariants,
+  buttonVariants,
+} from "@/components/ui/button.astro";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  href: string;
+  target?: string;
+  variant?: ButtonVariants;
+  size?: ButtonSize;
+  className?: string;
+}
+
+const { href, target, variant, size, className } = Astro.props as Props;
+---
+
+<a
+  href={href}
+  target={target}
+  class={cn(buttonVariants({ variant, size }), className)}
+>
+  <slot />
+</a>

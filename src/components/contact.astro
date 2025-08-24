@@ -1,0 +1,63 @@
+---
+import { Github, Linkedin, Mail } from "./icon.astro";
+import Card from "./ui/card.astro";
+import LinkButton from "./ui/link-button.astro";
+---
+
+<section id="contact" class="container mx-auto max-w-4xl px-4 py-20">
+  <div class="text-center space-y-8">
+    <h2 class="font-console text-3xl md:text-4xl font-bold">
+      <span class="text-purple-400">// </span>Contacto
+    </h2>
+
+    <Card
+      className="bg-card/50 backdrop-blur border-border/50 max-w-2xl mx-auto"
+    >
+      <Card variant="content" className="pt-8 pb-8">
+        <div class="space-y-6">
+          <div class="font-console text-sm text-purple-400 mb-4">
+            {"~/contact $ let's_collaborate"}
+          </div>
+
+          <p class="text-lg text-muted-foreground">
+            ¿Tienes un proyecto en mente? Me encantaría colaborar contigo y
+            crear algo increíble juntos.
+          </p>
+
+          <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+            <LinkButton
+              href="mailto:carralerocristianx@gmail.com"
+              variant="outline"
+              className="bg-purple-600 hover:bg-purple-500 transition-colors"
+            >
+              <Mail class="h-4 w-4 mr-2" />
+              Email
+            </LinkButton>
+
+            <LinkButton
+              href="https://www.linkedin.com/in/carralerocristianx/"
+              target="_blank"
+              variant="outline"
+              className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors"
+            >
+              <Linkedin class="h-4 w-4 mr-2" />
+
+              LinkedIn
+            </LinkButton>
+
+            <LinkButton
+              href="https://github.com/criss8X"
+              target="_blank"
+              variant="outline"
+              className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors"
+            >
+              <Github class="h-4 w-4 mr-2" />
+
+              GitHub
+            </LinkButton>
+          </div>
+        </div>
+      </Card>
+    </Card>
+  </div>
+</section>
