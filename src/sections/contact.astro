@@ -1,8 +1,12 @@
 ---
 import Card from "@ui/card.astro";
-import { ArrowRight, Clock, Github, Linkedin, Mail } from "@ui/icon.astro";
+import { Clock, Github, Linkedin, Mail } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
 import Section from "@/components/section.astro";
+import { contactDescription } from "@/content/es/contact.json";
+import { parseHighlightsFromParagraph } from "@/lib/markdown";
+
+const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---
 
 <Section id="contact" title="Contacto" className="max-w-4xl">
@@ -13,10 +17,7 @@ import Section from "@/components/section.astro";
           {"~/contact $ let's_build_something_amazing"}
         </div>
 
-        <p class="text-lg text-muted-foreground">
-          Tengo <strong class="highlight">disponibilidad inmediata</strong> para
-          proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.
-        </p>
+        <p class="text-lg text-muted-foreground" set:html={descHtml} />
 
         <div
           class="flex items-center justify-center gap-2 text-sm text-muted-foreground"
@@ -35,10 +36,6 @@ import Section from "@/components/section.astro";
           >
             <Mail class="h-4 w-4" />
             Enviar un mensaje
-
-            <ArrowRight
-              class="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform"
-            />
           </LinkButton>
 
           <LinkButton

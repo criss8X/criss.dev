@@ -2,14 +2,10 @@
 import Card from "@ui/card.astro";
 import { Clock, MapPin } from "@ui/icon.astro";
 import Section from "@/components/section.astro";
+import { location, markdown, time } from "@/content/es/about.json";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
 
-const aboutMeParagraph = `Con **4 años de experiencia** en ingeniería de software,
-he perfeccionado un enfoque único que combina **metodologías ágiles** con **tecnologías
-de vanguardia**. Mi especialidad es crear soluciones que no solo funcionan,
-sino que escalan y generan valor real para el negocio.`;
-
-const paragraphHtml = parseHighlightsFromParagraph(aboutMeParagraph);
+const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---
 
 <Section id="about" title="Sobre mí" className="max-w-4xl">
@@ -27,13 +23,13 @@ const paragraphHtml = parseHighlightsFromParagraph(aboutMeParagraph);
           <div class="flex items-center gap-2">
             <MapPin class="h-4 w-4 text-purple-400" />
 
-            <span>Puerto Padre, Las Tunas, Cuba</span>
+            <span>{location}</span>
           </div>
 
           <div class="flex items-center gap-2">
             <Clock class="h-4 w-4 text-purple-400" />
 
-            <span>GMT-5 (Flexible)</span>
+            <span>{time}</span>
           </div>
         </div>
       </div>

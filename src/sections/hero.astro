@@ -2,16 +2,7 @@
 import Badge from "@ui/badge.astro";
 import { ArrowRight } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
-
-const keywordSkills = [
-  "TypeScript",
-  "React",
-  "Solidity",
-  "Rust",
-  "Next.js",
-  "PostgreSQL",
-  "Tailwind CSS",
-];
+import { description, mainSkills, mainStack } from "@/content/es/hero.json";
 ---
 
 <section class="container mx-auto max-w-6xl px-4 py-24 md:py-32">
@@ -32,18 +23,18 @@ const keywordSkills = [
       <p
         class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
       >
-        <span class="text-purple-300">Frontend • Backend • Web3</span>
+        <span class="text-purple-300">{mainStack}</span>
 
         <br />
-        Desarrollador Full Stack especializado en tecnologías modernas y blockchain
+        {description}
       </p>
     </div>
 
     <div class="flex flex-wrap gap-3 justify-center max-w-3xl">
       {
-        keywordSkills.map((tech) => (
+        mainSkills.map((skill) => (
           <Badge variant="secondary" className="text-sm px-3 py-1">
-            {tech}
+            {skill}
           </Badge>
         ))
       }
