@@ -2,14 +2,15 @@
 import Section from "@portfolio/components/section.astro";
 import Card from "@ui/card.astro";
 import { Clock, MapPin } from "@ui/icon.astro";
-import { location, markdown, time } from "@/content/es/about.json";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
+import { content } from "@/locales/es/portfolio";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
 
+const { location, markdown, time } = content.about;
 const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---
 

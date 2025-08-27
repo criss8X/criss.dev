@@ -3,13 +3,14 @@ import Section from "@portfolio/components/section.astro";
 import Card from "@ui/card.astro";
 import { Clock, Github, Linkedin, Mail } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
-import { contactDescription } from "@/content/es/contact.json";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
+import { content } from "@/locales/es/portfolio";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
+const { contactDescription } = content.contact;
 
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---

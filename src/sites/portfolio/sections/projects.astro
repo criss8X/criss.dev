@@ -4,22 +4,14 @@ import Badge from "@ui/badge.astro";
 import Card from "@ui/card.astro";
 import { ExternalLink, Github } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
-import rawProjects from "@/content/es/projects.json";
+import { content } from "@/locales/es/portfolio";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
 
-type Project = {
-  name: string;
-  desc: string;
-  stack: string[];
-  github: string;
-  preview?: string;
-};
-
-const projects: Project[] = rawProjects.projects;
+const projects = content.projects;
 ---
 
 <Section id="projects" title="Proyectos Destacados" className="max-w-6xl">
