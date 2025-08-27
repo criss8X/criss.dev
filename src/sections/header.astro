@@ -1,4 +1,10 @@
 ---
+import type { LangProps } from "@/types/types";
+
+export interface Props extends LangProps {}
+
+const { lang } = Astro.props;
+
 const navItems = ["about", "services", "skills", "projects", "contact"];
 ---
 

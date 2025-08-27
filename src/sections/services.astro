@@ -2,6 +2,11 @@
 import { Code, Rocket, Shield } from "@ui/icon.astro";
 import Section from "@/components/section.astro";
 import ServiceCard from "@/components/service-card.astro";
+import type { LangProps } from "@/types/types";
+
+export interface Props extends LangProps {}
+
+const { lang } = Astro.props;
 ---
 
 <Section id="services" title="Servicios" className="max-w-6xl">

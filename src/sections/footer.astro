@@ -1,6 +1,11 @@
 ---
 import { Github, Linkedin, Mail } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
+import type { LangProps } from "@/types/types";
+
+export interface Props extends LangProps {}
+
+const { lang } = Astro.props;
 ---
 
 <footer class="border-t border-border/50 py-8 mt-20">

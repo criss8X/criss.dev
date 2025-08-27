@@ -4,6 +4,11 @@ import { Clock, MapPin } from "@ui/icon.astro";
 import Section from "@/components/section.astro";
 import { location, markdown, time } from "@/content/es/about.json";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
+import type { LangProps } from "@/types/types";
+
+export interface Props extends LangProps {}
+
+const { lang } = Astro.props;
 
 const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---

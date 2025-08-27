@@ -1,0 +1,15 @@
+---
+interface Props {
+  to: string;
+}
+
+export const prerender = true;
+
+const { to } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta http-equiv="refresh" content=`0; url=${to}` />
+  </head>
+</html>

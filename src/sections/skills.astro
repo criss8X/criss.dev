@@ -2,6 +2,11 @@
 import { Github, Palette, Terminal, Zap } from "@ui/icon.astro";
 import Section from "@/components/section.astro";
 import SkillCard from "@/components/skill-card.astro";
+import type { LangProps } from "@/types/types";
+
+export interface Props extends LangProps {}
+
+const { lang } = Astro.props;
 ---
 
 <Section id="skills" title="Stack Tecnológico" className="max-w-6xl">

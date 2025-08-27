@@ -1,0 +1,46 @@
+---
+import About from "@section/about.astro";
+import Contact from "@section/contact.astro";
+import Footer from "@section/footer.astro";
+import Header from "@section/header.astro";
+import Hero from "@section/hero.astro";
+import Projects from "@section/projects.astro";
+import Skills from "@section/skills.astro";
+
+import "@/styles/global.css";
+import Services from "@/sections/services.astro";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+---
+
+<html lang={lang} class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/icons/zap.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Criss's portfolio</title>
+  </head>
+
+  <body class="min-h-screen bg-black text-white grid-pattern">
+    <Header lang={lang} />
+
+    <Hero lang={lang} />
+
+    <About lang={lang} />
+
+    <Services lang={lang} />
+
+    <Skills lang={lang} />
+
+    <Projects lang={lang} />
+
+    <Contact lang={lang} />
+
+    <Footer lang={lang} />
+  </body>
+</html>

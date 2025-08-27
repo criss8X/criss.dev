@@ -5,6 +5,11 @@ import { ExternalLink, Github } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
 import Section from "@/components/section.astro";
 import rawProjects from "@/content/es/projects.json";
+import type { LangProps } from "@/types/types";
+
+export interface Props extends LangProps {}
+
+const { lang } = Astro.props;
 
 type Project = {
   name: string;
