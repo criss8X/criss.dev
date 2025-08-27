@@ -8,7 +8,8 @@
 			"@/*": ["./src/*"],
 			"@section/*": ["./src/sections/*"],
 			"@ui/*": ["./src/components/ui/*"],
-			"@shadcn/*": ["./src/components/shadcn/*"]
+			"@shadcn/*": ["./src/components/shadcn/*"],
+			"@portfolio/*": ["./src/sites/portfolio/*"]
 		}
 	}
 }
