@@ -1,3 +1,5 @@
+import { Github, Palette, Terminal, Zap } from "@/components/ui/icon.astro";
+
 type Project = {
 	name: string;
 	desc: string;
@@ -35,36 +37,95 @@ const PROJECTS: Project[] = [
 	},
 ];
 
-export const content = {
-	projects: PROJECTS,
+const HERO = {
+	mainStack: "Frontend • Backend • Web3",
+	description:
+		"Desarrollador Full Stack especializado en tecnologías modernas y blockchain",
 
-	hero: {
-		mainStack: "Frontend • Backend • Web3",
-		description:
-			"Desarrollador Full Stack especializado en tecnologías modernas y blockchain",
+	mainSkills: [
+		"TypeScript",
+		"React",
+		"Solidity",
+		"Rust",
+		"Next.js",
+		"PostgreSQL",
+		"Tailwind CSS",
+	],
+};
 
-		mainSkills: [
-			"TypeScript",
+const CONTACT = {
+	contactDescription:
+		"Tengo **disponibilidad inmediata** para proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.",
+};
+
+const ABOUT = {
+	markdown: {
+		paragraph:
+			"Con **4 años de experiencia** en ingeniería de software, he perfeccionado un enfoque único que combina **metodologías ágiles** con **tecnologías de vanguardia**. Mi especialidad es crear soluciones que no solo funcionan, sino que escalan y generan valor real para el negocio",
+	},
+	location: "Puerto Padre, Las Tunas, Cuba",
+	time: "GMT-5 (Flexible)",
+};
+
+type Skill = {
+	title: string;
+	description: string;
+	stack: string[];
+	icon: typeof Palette;
+};
+
+const SKILLS: Skill[] = [
+	{
+		title: "Frontend Development",
+		description: "Interfaces modernas y experiencias de usuario excepcionales",
+		icon: Palette,
+		stack: [
 			"React",
-			"Solidity",
-			"Rust",
-			"Next.js",
-			"PostgreSQL",
+			"TypeScript",
 			"Tailwind CSS",
+			"React Router",
+			"HTML5 & SEO",
+			"Next.js",
 		],
 	},
-
-	contact: {
-		contactDescription:
-			"Tengo **disponibilidad inmediata** para proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.",
+	{
+		title: "Backend & Database",
+		description: "APIs robustas y gestión eficiente de datos",
+		icon: Zap,
+		stack: [
+			"Node.js",
+			"Fastify",
+			"PostgreSQL",
+			"Drizzle ORM",
+			"Cloudflare Workers",
+			"SQL",
+		],
 	},
-
-	about: {
-		markdown: {
-			paragraph:
-				"Con **4 años de experiencia** en ingeniería de software, he perfeccionado un enfoque único que combina **metodologías ágiles** con **tecnologías de vanguardia**. Mi especialidad es crear soluciones que no solo funcionan, sino que escalan y generan valor real para el negocio",
-		},
-		location: "Puerto Padre, Las Tunas, Cuba",
-		time: "GMT-5 (Flexible)",
+	{
+		title: "Web3 & Blockchain",
+		description: "Contratos inteligentes y aplicaciones descentralizadas",
+		icon: Terminal,
+		stack: ["Solidity", "Vyper", "Viem & Wagmi", "Rainbowkit", "IPFS"],
 	},
+	{
+		title: "Tools & Languages",
+		description: "Herramientas de desarrollo y lenguajes adicionales",
+		icon: Github,
+		stack: [
+			"Git & GitHub",
+			"Rust",
+			"Kotlin",
+			"GitHub Actions",
+			"VsCode",
+			"Arch Linux",
+		],
+	},
+];
+
+export const content = {
+	projects: PROJECTS,
+	hero: HERO,
+	contact: CONTACT,
+	about: ABOUT,
+	skills: SKILLS,
 } as const;

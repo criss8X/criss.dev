@@ -2,70 +2,23 @@
 import Section from "@portfolio/components/section.astro";
 import SkillCard from "@portfolio/components/skill-card.astro";
 import { Github, Palette, Terminal, Zap } from "@ui/icon.astro";
+import { content } from "@/locales/es/portfolio";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
+const skills = content.skills;
 ---
 
 <Section id="skills" title="Stack Tecnológico" className="max-w-6xl">
   <div class="grid md:grid-cols-2 gap-8">
-    {/* Frontend */}
-    <SkillCard
-      title="Frontend Development"
-      description="Interfaces modernas y experiencias de usuario excepcionales"
-      stack={[
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "React Router",
-        "HTML5 & SEO",
-        "Next.js",
-      ]}
-    >
-      <Palette slot="icon" class="size-6 text-purple-400" />
-    </SkillCard>
-
-    {/* Backend */}
-    <SkillCard
-      title="Backend & Database"
-      description="APIs robustas y gestión eficiente de datos"
-      stack={[
-        "Node.js",
-        "Fastify",
-        "PostgreSQL",
-        "Drizzle ORM",
-        "Cloudflare Workers",
-        "SQL",
-      ]}
-    >
-      <Zap slot="icon" class="size-6 text-purple-400" />
-    </SkillCard>
-
-    {/* Web3 */}
-    <SkillCard
-      title="Web3 & Blockchain"
-      description="Contratos inteligentes y aplicaciones descentralizadas"
-      stack={["Solidity", "Vyper", "Viem & Wagmi", "Rainbowkit", "IPFS"]}
-    >
-      <Terminal slot="icon" class="size-6 text-purple-400" />
-    </SkillCard>
-
-    {/* Tools & Others */}
-    <SkillCard
-      title="Tools & Languages"
-      description="Herramientas de desarrollo y lenguajes adicionales"
-      stack={[
-        "Git & GitHub",
-        "Rust",
-        "Kotlin",
-        "GitHub Actions",
-        "VsCode",
-        "Arch Linux",
-      ]}
-    >
-      <Github slot="icon" class="size-6 text-purple-400" />
-    </SkillCard>
+    {
+      skills.map(({ title, description, stack, icon: Icon }) => (
+        <SkillCard title={title} description={description} stack={stack}>
+          <Icon slot="icon" class="size-6 text-purple-400" />
+        </SkillCard>
+      ))
+    }
   </div>
 </Section>
