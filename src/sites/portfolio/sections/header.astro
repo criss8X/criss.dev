@@ -1,11 +1,18 @@
 ---
+import { getLocaleBySite } from "@/locales/locale";
 import type { LangProps } from "@/types/types";
+
+export type NavItem = {
+  name: string;
+  id: string;
+};
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
+const { ui } = getLocaleBySite("portfolio", lang);
 
-const navItems = ["about", "services", "skills", "projects", "contact"];
+const navItems = ui.header.navItems;
 ---
 
 <header
@@ -23,14 +30,12 @@ const navItems = ["about", "services", "skills", "projects", "contact"];
 
       <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
         {
-          navItems.map((id) => (
+          navItems.map(({ id, name }) => (
             <a
               href={`#${id}`}
               class="transition-colors hover:text-purple-400 text-muted-foreground"
             >
-              {id === "about"
-                ? "Sobre mí"
-                : id.charAt(0).toUpperCase() + id.slice(1)}
+              {name}
             </a>
           ))
         }

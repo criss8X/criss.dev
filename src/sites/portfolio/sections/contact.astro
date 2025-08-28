@@ -4,13 +4,16 @@ import Card from "@ui/card.astro";
 import { Clock, Github, Linkedin, Mail } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { content } from "@/locales/es/portfolio";
+import { getLocaleBySite } from "@/locales/locale";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
-const { contactDescription } = content.contact;
+const { content, ui } = getLocaleBySite("portfolio", lang);
+
+const { contactDescription, label } = content.contact;
+const { sendMessageBtn } = ui.contact;
 
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---
@@ -30,9 +33,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
         >
           <Clock class="h-4 w-4 text-green-400" />
 
-          <span class="leading-relaxed"
-            >Respuesta garantizada en menos de 24 horas</span
-          >
+          <span class="leading-relaxed">{label}</span>
         </div>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
@@ -41,7 +42,8 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
             className="group"
           >
             <Mail class="h-4 w-4" />
-            Enviar un mensaje
+
+            {sendMessageBtn}
           </LinkButton>
 
           <LinkButton

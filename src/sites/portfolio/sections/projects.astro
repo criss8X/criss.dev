@@ -4,14 +4,16 @@ import Badge from "@ui/badge.astro";
 import Card from "@ui/card.astro";
 import { ExternalLink, Github } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
-import { content } from "@/locales/es/portfolio";
+import { getLocaleBySite } from "@/locales/locale";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
+const { content, ui } = getLocaleBySite("portfolio", lang);
 
 const projects = content.projects;
+const { previewBtn } = ui.projects;
 ---
 
 <Section id="projects" title="Proyectos Destacados" className="max-w-6xl">
@@ -61,7 +63,8 @@ const projects = content.projects;
               {preview && (
                 <LinkButton size="sm" href={preview} target="_blank">
                   <ExternalLink class="h-4 w-4 mr-1" />
-                  Preview
+
+                  {previewBtn}
                 </LinkButton>
               )}
             </div>

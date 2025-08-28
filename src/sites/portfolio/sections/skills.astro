@@ -1,17 +1,19 @@
 ---
 import Section from "@portfolio/components/section.astro";
 import SkillCard from "@portfolio/components/skill-card.astro";
-import { Github, Palette, Terminal, Zap } from "@ui/icon.astro";
-import { content } from "@/locales/es/portfolio";
+import { getLocaleBySite } from "@/locales/locale";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
+const { content, ui } = getLocaleBySite("portfolio", lang);
+
+const { title } = ui.skills;
 const skills = content.skills;
 ---
 
-<Section id="skills" title="Stack Tecnológico" className="max-w-6xl">
+<Section id="skills" title={title} className="max-w-6xl">
   <div class="grid md:grid-cols-2 gap-8">
     {
       skills.map(({ title, description, stack, icon: Icon }) => (

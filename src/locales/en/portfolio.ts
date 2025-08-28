@@ -57,7 +57,7 @@ const HERO = {
 const CONTACT = {
 	contactDescription:
 		"Tengo **disponibilidad inmediata** para proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.",
-	label: "Respuesta garantizada en menos de 24 horas",
+	label: "",
 };
 
 const ABOUT = {
@@ -135,11 +135,11 @@ export const content = {
 // #region UI
 
 const NAV_ITEMS: NavItem[] = [
-	{ name: "Sobre mí", id: "about" },
-	{ name: "Servicios", id: "services" },
-	{ name: "Habilidades", id: "skills" },
-	{ name: "Projectos", id: "projects" },
-	{ name: "Contacto", id: "contact" },
+	{ name: "About", id: "about" },
+	{ name: "Services", id: "services" },
+	{ name: "Skills", id: "skills" },
+	{ name: "Projects", id: "projects" },
+	{ name: "Contact", id: "contact" },
 ];
 
 export const ui = {
@@ -147,16 +147,16 @@ export const ui = {
 		navItems: NAV_ITEMS,
 	},
 	hero: {
-		contactButton: "Trabajemos juntos",
-		projectsButton: "Ver mi trabajo",
+		contactButton: "Work Together",
+		projectsButton: "Look my work",
 	},
 	contact: {
-		sendMessageBtn: "Enviar un mensaje",
+		sendMessageBtn: "Send message",
 	},
 	projects: {
-		previewBtn: "Previsualizar",
+		previewBtn: "Preview",
 	},
 	skills: {
-		title: "Stack Tecnológico",
+		title: "Tech Stack",
 	},
 } as const;

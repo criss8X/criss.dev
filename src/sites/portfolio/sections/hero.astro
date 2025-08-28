@@ -2,13 +2,17 @@
 import Badge from "@ui/badge.astro";
 import { ArrowRight } from "@ui/icon.astro";
 import LinkButton from "@ui/link.astro";
-import { content } from "@/locales/es/portfolio";
+import { getLocaleBySite } from "@/locales/locale";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
+
+const { content, ui } = getLocaleBySite("portfolio", lang);
+
 const { description, mainSkills, mainStack } = content.hero;
+const { contactButton, projectsButton } = ui.hero;
 ---
 
 <section class="container mx-auto max-w-6xl px-4 py-24 md:py-32">
@@ -48,7 +52,7 @@ const { description, mainSkills, mainStack } = content.hero;
 
     <div class="flex flex-col sm:flex-row gap-4 pt-6">
       <LinkButton size="lg" href="#contact" className="group">
-        <span class="leading-relaxed">Trabajemos juntos</span>
+        <span class="leading-relaxed">{contactButton}</span>
 
         <ArrowRight
           class="ml-0.5 h-4 w-4 group-hover:translate-x-1 transition-transform"
@@ -56,7 +60,7 @@ const { description, mainSkills, mainStack } = content.hero;
       </LinkButton>
 
       <LinkButton variant="outline" size="lg" href="#projects">
-        Ver mi trabajo
+        {projectsButton}
       </LinkButton>
     </div>
   </div>

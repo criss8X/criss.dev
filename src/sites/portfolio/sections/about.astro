@@ -3,14 +3,16 @@ import Section from "@portfolio/components/section.astro";
 import Card from "@ui/card.astro";
 import { Clock, MapPin } from "@ui/icon.astro";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { content } from "@/locales/es/portfolio";
+import { getLocaleBySite } from "@/locales/locale";
 import type { LangProps } from "@/types/types";
 
 export interface Props extends LangProps {}
 
 const { lang } = Astro.props;
 
+const { content } = getLocaleBySite("portfolio", lang);
 const { location, markdown, time } = content.about;
+
 const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---
 
