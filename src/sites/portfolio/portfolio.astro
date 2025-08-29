@@ -10,11 +10,7 @@ import Skills from "@portfolio/sections/skills.astro";
 import "@/styles/global.css";
 import Services from "@portfolio/sections/services.astro";
 
-interface Props {
-  lang: string;
-}
-
-const { lang } = Astro.props;
+const lang = Astro.currentLocale;
 ---
 
 <html lang={lang} class="dark">
@@ -27,20 +23,20 @@ const { lang } = Astro.props;
   </head>
 
   <body class="min-h-screen bg-black text-white grid-pattern">
-    <Header lang={lang} />
+    <Header />
 
-    <Hero lang={lang} />
+    <Hero />
 
-    <About lang={lang} />
+    <About />
 
-    <Services lang={lang} />
+    <Services />
 
-    <Skills lang={lang} />
+    <Skills />
 
-    <Projects lang={lang} />
+    <Projects />
 
-    <Contact lang={lang} />
+    <Contact />
 
-    <Footer lang={lang} />
+    <Footer />
   </body>
 </html>

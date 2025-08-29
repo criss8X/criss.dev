@@ -1,15 +1,13 @@
 ---
+import { assertLocale } from "@/lib/error";
 import { getLocaleBySite } from "@/locales/locale";
-import type { LangProps } from "@/types/types";
 
 export type NavItem = {
   name: string;
   id: string;
 };
 
-export interface Props extends LangProps {}
-
-const { lang } = Astro.props;
+const lang = assertLocale(Astro.currentLocale);
 const { ui } = getLocaleBySite("portfolio", lang);
 
 const navItems = ui.header.navItems;
@@ -22,7 +20,7 @@ const navItems = ui.header.navItems;
     class="container mx-auto max-w-6xl flex h-16 items-center justify-center px-4"
   >
     <div class="flex items-center justify-between w-full">
-      <a class="flex items-center space-x-2" href="/">
+      <a class="flex items-center space-x-2" href="/es/portfolio">
         <span class="text-xl font-bold text-purple-400">
           {"<cristian.dev/>"}
         </span>

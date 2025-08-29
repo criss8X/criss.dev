@@ -2,11 +2,9 @@
 import Section from "@portfolio/components/section.astro";
 import ServiceCard from "@portfolio/components/service-card.astro";
 import { Code, Rocket, Shield } from "@ui/icon.astro";
-import type { LangProps } from "@/types/types";
+import { assertLocale } from "@/lib/error";
 
-export interface Props extends LangProps {}
-
-const { lang } = Astro.props;
+const lang = assertLocale(Astro.currentLocale);
 ---
 
 <Section id="services" title="Servicios" className="max-w-6xl">
