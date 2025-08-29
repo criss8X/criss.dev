@@ -1,63 +1,25 @@
 ---
 import Section from "@portfolio/components/section.astro";
 import ServiceCard from "@portfolio/components/service-card.astro";
-import { Code, Rocket, Shield } from "@ui/icon.astro";
 import { assertLocale } from "@/lib/error";
+import { getLocaleBySite } from "@/locales/locale";
 
 const lang = assertLocale(Astro.currentLocale);
+const { content, ui } = getLocaleBySite("portfolio", lang);
 ---
 
-<Section id="services" title="Servicios" className="max-w-6xl">
+<Section id="services" title={ui.services.title} className="max-w-6xl">
   <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-    <ServiceCard
-      title="Desarrollo Full Stack"
-      description="Aplicaciones web completas desde el frontend hasta la base de datos"
-      features={[
-        "React/Next.js & TypeScript",
-        "Node.js/Fastify APIs",
-        "PostgreSQL & Drizzle ORM",
-        "Tailwind CSS & UI/UX",
-        "Cloudflare Workers",
-        "Testing & CI/CD",
-        "SEO & Performance",
-        "Responsive Design",
-      ]}
-    >
-      <Code slot="icon" class="h-8 w-8 text-purple-400" />
-    </ServiceCard>
-
-    <ServiceCard
-      title="Smart Contracts & Web3"
-      description="Contratos inteligentes seguros y aplicaciones descentralizadas"
-      features={[
-        "Solidity & Vyper",
-        "Auditorías de seguridad",
-        "Testing exhaustivo",
-        "Deployment & Verificación",
-        "Viem & Wagmi integration",
-        "Rainbowkit wallets",
-        "IPFS & descentralización",
-        "Gas optimization",
-      ]}
-    >
-      <Shield slot="icon" class="h-8 w-8 text-purple-400" />
-    </ServiceCard>
-
-    <ServiceCard
-      title="Consultoría & Mentoring"
-      description="Arquitectura, optimización y mejores prácticas para tu equipo"
-      features={[
-        "Code Review & Refactoring",
-        "Arquitectura de software",
-        "Mentoring técnico",
-        "DevOps & GitHub Actions",
-        "Performance optimization",
-        "Best practices",
-        "Team leadership",
-        "Technical documentation",
-      ]}
-    >
-      <Rocket slot="icon" class="h-8 w-8 text-purple-400" />
-    </ServiceCard>
+    {
+      content.services.map(({ description, features, title, icon: Icon }) => (
+        <ServiceCard
+          title={title}
+          description={description}
+          features={features}
+        >
+          <Icon slot="icon" class="h-8 w-8 text-purple-400" />
+        </ServiceCard>
+      ))
+    }
   </div>
 </Section>

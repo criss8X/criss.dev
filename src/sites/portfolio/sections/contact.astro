@@ -11,12 +11,12 @@ const lang = assertLocale(Astro.currentLocale);
 const { content, ui } = getLocaleBySite("portfolio", lang);
 
 const { contactDescription, label } = content.contact;
-const { sendMessageBtn } = ui.contact;
+const { sendMessageBtn, title } = ui.contact;
 
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---
 
-<Section id="contact" title="Contacto" className="max-w-4xl">
+<Section id="contact" title={title} className="max-w-4xl">
   <Card className="bg-card/50 backdrop-blur border-border/50 max-w-2xl mx-auto">
     <Card variant="content" className="pt-8 pb-8">
       <div class="space-y-6">

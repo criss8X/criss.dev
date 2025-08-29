@@ -8,13 +8,13 @@ import { getLocaleBySite } from "@/locales/locale";
 
 const lang = assertLocale(Astro.currentLocale);
 
-const { content } = getLocaleBySite("portfolio", lang);
+const { content, ui } = getLocaleBySite("portfolio", lang);
 const { location, markdown, time } = content.about;
 
 const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---
 
-<Section id="about" title="Sobre mí" className="max-w-4xl">
+<Section id="about" title={ui.about.title} className="max-w-4xl">
   <Card className="bg-card/50 backdrop-blur border-border/50">
     <Card variant="content" className="pt-8 pb-8">
       <div class="space-y-6">

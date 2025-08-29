@@ -1,4 +1,12 @@
-import { Github, Palette, Terminal, Zap } from "@/components/ui/icon.astro";
+import {
+	Code,
+	Github,
+	Palette,
+	Rocket,
+	Shield,
+	Terminal,
+	Zap,
+} from "@ui/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
 
 type Project = {
@@ -124,12 +132,71 @@ const SKILLS: Skill[] = [
 	},
 ];
 
+type Service = {
+	title: string;
+	description: string;
+	features: string[];
+	icon: typeof Palette;
+};
+
+const SERVICES: Service[] = [
+	{
+		title: "Desarrollo Full Stack",
+		description:
+			"Aplicaciones web completas desde el frontend hasta la base de datos",
+		features: [
+			"React/Next.js & TypeScript",
+			"Node.js/Fastify APIs",
+			"PostgreSQL & Drizzle ORM",
+			"Tailwind CSS & UI/UX",
+			"Cloudflare Workers",
+			"Testing & CI/CD",
+			"SEO & Performance",
+			"Responsive Design",
+		],
+		icon: Code,
+	},
+	{
+		title: "Smart Contracts & Web3",
+		description:
+			"Contratos inteligentes seguros y aplicaciones descentralizadas",
+		features: [
+			"Solidity & Vyper",
+			"Auditorías de seguridad",
+			"Testing exhaustivo",
+			"Deployment & Verificación",
+			"Viem & Wagmi integration",
+			"Rainbowkit wallets",
+			"IPFS & descentralización",
+			"Gas optimization",
+		],
+		icon: Shield,
+	},
+	{
+		title: "Consultoría & Mentoring",
+		description:
+			"Arquitectura, optimización y mejores prácticas para tu equipo",
+		features: [
+			"Code Review & Refactoring",
+			"Arquitectura de software",
+			"Mentoring técnico",
+			"DevOps & GitHub Actions",
+			"Performance optimization",
+			"Best practices",
+			"Team leadership",
+			"Technical documentation",
+		],
+		icon: Rocket,
+	},
+];
+
 export const content = {
 	projects: PROJECTS,
 	hero: HERO,
 	contact: CONTACT,
 	about: ABOUT,
 	skills: SKILLS,
+	services: SERVICES,
 } as const;
 
 // #region UI
@@ -150,13 +217,21 @@ export const ui = {
 		contactButton: "Trabajemos juntos",
 		projectsButton: "Ver mi trabajo",
 	},
+	about: {
+		title: "Sobre mí",
+	},
 	contact: {
+		title: "Contacto",
 		sendMessageBtn: "Enviar un mensaje",
 	},
 	projects: {
+		title: "Projectos Destacados",
 		previewBtn: "Previsualizar",
 	},
 	skills: {
 		title: "Stack Tecnológico",
+	},
+	services: {
+		title: "Servicios",
 	},
 } as const;

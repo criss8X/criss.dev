@@ -12,10 +12,10 @@ const lang = assertLocale(Astro.currentLocale);
 const { content, ui } = getLocaleBySite("portfolio", lang);
 
 const projects = content.projects;
-const { previewBtn } = ui.projects;
+const { previewBtn, title } = ui.projects;
 ---
 
-<Section id="projects" title="Proyectos Destacados" className="max-w-6xl">
+<Section id="projects" title={title} className="max-w-6xl">
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
       projects.map(({ name, desc, stack, github, preview }) => (

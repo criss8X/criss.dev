@@ -1,4 +1,12 @@
-import { Github, Palette, Terminal, Zap } from "@/components/ui/icon.astro";
+import {
+	Code,
+	Github,
+	Palette,
+	Rocket,
+	Shield,
+	Terminal,
+	Zap,
+} from "@ui/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
 
 type Project = {
@@ -12,13 +20,13 @@ type Project = {
 const PROJECTS: Project[] = [
 	{
 		name: "Force4G",
-		desc: "Aplicación para forzar la 4G del teléfono que ocupa menos de 250 KB",
+		desc: "Lightweight application to force 4G on your phone, taking up less than 250KB",
 		stack: ["Kotlin", "Mobile Dev"],
 		github: "https://github.com/criss8X/Force4G",
 	},
 	{
 		name: "Mirage",
-		desc: "Cliente web simple, ligero y personalizable para el protocolo Matrix con interfaz limpia y fácil de usar",
+		desc: "Simple, lightweight, and customizable web client for the Matrix protocol with a clean and user-friendly interface",
 		stack: [
 			"TypeScript",
 			"React",
@@ -32,7 +40,7 @@ const PROJECTS: Project[] = [
 	},
 	{
 		name: "ERC20 Vault",
-		desc: "Contrato inteligente para almacenamiento seguro de tokens ERC20 con funcionalidades de depósito y retiro",
+		desc: "Smart contract for secure ERC20 token storage with deposit and withdrawal functionality",
 		stack: ["Solidity", "Ethereum", "Smart Contracts", "Web3"],
 		github: "https://github.com/yuri-xyz/erc20-vault",
 	},
@@ -41,7 +49,7 @@ const PROJECTS: Project[] = [
 const HERO = {
 	mainStack: "Frontend • Backend • Web3",
 	description:
-		"Desarrollador Full Stack especializado en tecnologías modernas y blockchain",
+		"Full Stack Developer specialized in modern technologies and blockchain",
 
 	mainSkills: [
 		"TypeScript",
@@ -56,14 +64,14 @@ const HERO = {
 
 const CONTACT = {
 	contactDescription:
-		"Tengo **disponibilidad inmediata** para proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.",
+		"I'm **immediately available** for new projects. Let's talk about how I can help you achieve your goals.",
 	label: "",
 };
 
 const ABOUT = {
 	markdown: {
 		paragraph:
-			"Con **4 años de experiencia** en ingeniería de software, he perfeccionado un enfoque único que combina **metodologías ágiles** con **tecnologías de vanguardia**. Mi especialidad es crear soluciones que no solo funcionan, sino que escalan y generan valor real para el negocio",
+			"With **4 years of experience** in software engineering, I've honed a unique approach that combines **agile methodologies** with **cutting-edge technologies**. My specialty is creating solutions that not only work but also scale and generate real business value",
 	},
 	location: "Puerto Padre, Las Tunas, Cuba",
 	time: "GMT-5 (Flexible)",
@@ -79,7 +87,7 @@ type Skill = {
 const SKILLS: Skill[] = [
 	{
 		title: "Frontend Development",
-		description: "Interfaces modernas y experiencias de usuario excepcionales",
+		description: "Modern interfaces and exceptional user experiences",
 		icon: Palette,
 		stack: [
 			"React",
@@ -92,7 +100,7 @@ const SKILLS: Skill[] = [
 	},
 	{
 		title: "Backend & Database",
-		description: "APIs robustas y gestión eficiente de datos",
+		description: "Robust APIs and efficient data management",
 		icon: Zap,
 		stack: [
 			"Node.js",
@@ -105,13 +113,13 @@ const SKILLS: Skill[] = [
 	},
 	{
 		title: "Web3 & Blockchain",
-		description: "Contratos inteligentes y aplicaciones descentralizadas",
+		description: "Smart contracts and decentralized applications",
 		icon: Terminal,
 		stack: ["Solidity", "Vyper", "Viem & Wagmi", "Rainbowkit", "IPFS"],
 	},
 	{
 		title: "Tools & Languages",
-		description: "Herramientas de desarrollo y lenguajes adicionales",
+		description: "Development tools and additional languages",
 		icon: Github,
 		stack: [
 			"Git & GitHub",
@@ -124,12 +132,68 @@ const SKILLS: Skill[] = [
 	},
 ];
 
+type Service = {
+	title: string;
+	description: string;
+	features: string[];
+	icon: typeof Palette;
+};
+
+const SERVICES: Service[] = [
+	{
+		title: "Full Stack Development",
+		description: "Complete web applications from frontend to database",
+		features: [
+			"React/Next.js & TypeScript",
+			"Node.js/Fastify APIs",
+			"PostgreSQL & Drizzle ORM",
+			"Tailwind CSS & UI/UX",
+			"Cloudflare Workers",
+			"Testing & CI/CD",
+			"SEO & Performance",
+			"Responsive Design",
+		],
+		icon: Code,
+	},
+	{
+		title: "Smart Contracts & Web3",
+		description: "Secure smart contracts and decentralized applications",
+		features: [
+			"Solidity & Vyper",
+			"Security audits",
+			"Comprehensive testing",
+			"Deployment & Verification",
+			"Viem & Wagmi integration",
+			"Rainbowkit wallets",
+			"IPFS & decentralization",
+			"Gas optimization",
+		],
+		icon: Shield,
+	},
+	{
+		title: "Consulting & Mentoring",
+		description: "Architecture, optimization, and best practices for your team",
+		features: [
+			"Code Review & Refactoring",
+			"Software architecture",
+			"Technical mentoring",
+			"DevOps & GitHub Actions",
+			"Performance optimization",
+			"Best practices",
+			"Team leadership",
+			"Technical documentation",
+		],
+		icon: Rocket,
+	},
+];
+
 export const content = {
 	projects: PROJECTS,
 	hero: HERO,
 	contact: CONTACT,
 	about: ABOUT,
 	skills: SKILLS,
+	services: SERVICES,
 } as const;
 
 // #region UI
@@ -148,15 +212,23 @@ export const ui = {
 	},
 	hero: {
 		contactButton: "Work Together",
-		projectsButton: "Look my work",
+		projectsButton: "View my work",
+	},
+	about: {
+		title: "About me",
 	},
 	contact: {
+		title: "Contact",
 		sendMessageBtn: "Send message",
 	},
 	projects: {
+		title: "Projects",
 		previewBtn: "Preview",
 	},
 	skills: {
 		title: "Tech Stack",
+	},
+	services: {
+		title: "Services",
 	},
 } as const;
