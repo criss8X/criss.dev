@@ -27,7 +27,9 @@ const { title, description, features } = Astro.props;
   </Card>
 
   <Card variant="content" className="space-y-4">
-    <ul class="space-y-2">
+    <ul
+      class="flex flex-col max-h-36 flex-wrap gap-4 md:space-y-2 md:block md:max-h-max"
+    >
       {
         features.map((feature) => (
           <li class="flex items-center gap-2 text-sm">
