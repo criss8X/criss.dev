@@ -1,6 +1,7 @@
 ---
+import Badge from "@portfolio/components/badge.astro";
 import Section from "@portfolio/components/section.astro";
-import SkillCard from "@portfolio/components/skill-card.astro";
+import Card from "@/components/card.astro";
 import { assertLocale } from "@/lib/error";
 import { getLocaleBySite } from "@/locales/locale";
 
@@ -15,9 +16,30 @@ const skills = content.skills;
   <div class="grid md:grid-cols-2 gap-8">
     {
       skills.map(({ title, description, stack, icon: Icon }) => (
-        <SkillCard title={title} description={description} stack={stack}>
-          <Icon slot="icon" class="size-6 text-purple-400" />
-        </SkillCard>
+        <Card>
+          <Card variant="header" className="text-center">
+            <Card
+              variant="title"
+              className="flex items-center justify-center gap-3  text-xl"
+            >
+              <Icon class="size-6 text-purple-400" />
+
+              {title}
+            </Card>
+
+            <Card variant="description" className="text-base">
+              {description}
+            </Card>
+          </Card>
+
+          <Card variant="content">
+            <div class="flex flex-wrap gap-2 justify-center">
+              {stack.map((item) => (
+                <Badge>{item}</Badge>
+              ))}
+            </div>
+          </Card>
+        </Card>
       ))
     }
   </div>
