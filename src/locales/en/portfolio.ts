@@ -65,7 +65,7 @@ const HERO = {
 const CONTACT = {
 	contactDescription:
 		"I'm **immediately available** for new projects. Let's talk about how I can help you achieve your goals.",
-	label: "",
+	label: "Response guaranteed in less than 24 hours",
 };
 
 const ABOUT = {

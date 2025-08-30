@@ -1,8 +1,8 @@
 ---
 import Badge from "@portfolio/components/badge.astro";
+import Card from "@portfolio/components/card.astro";
 import LinkButton from "@portfolio/components/link.astro";
 import Section from "@portfolio/components/section.astro";
-import Card from "@/components/card.astro";
 import { ExternalLink, Github } from "@/components/icon.astro";
 import { assertLocale } from "@/lib/error";
 import { getLocaleBySite } from "@/locales/locale";
@@ -18,15 +18,7 @@ const { previewBtn, title } = ui.projects;
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
       projects.map(({ name, desc, stack, github, preview }) => (
-        <Card className="group relative bg-card/50 backdrop-blur border-border/50 hover:bg-card/70 hover:border-purple-400/50 transition-all duration-300 overflow-hidden">
-          {/* Shine effect */}
-          <div
-            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none project-glow"
-            style={{
-              background: `linear-gradient(to top, rgba(147, 51, 234, 0.2) 0%, rgba(168, 85, 247, 0.15) 30%, transparent 70%)`,
-            }}
-          />
-
+        <Card hasShine={true}>
           <Card variant="header">
             <Card
               variant="title"
