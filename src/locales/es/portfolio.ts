@@ -6,7 +6,7 @@ import {
 	Shield,
 	Terminal,
 	Zap,
-} from "@ui/icon.astro";
+} from "@/components/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
 
 type Project = {

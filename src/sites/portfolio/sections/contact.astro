@@ -1,8 +1,8 @@
 ---
+import LinkButton from "@portfolio/components/link.astro";
 import Section from "@portfolio/components/section.astro";
-import Card from "@ui/card.astro";
-import { Clock, Github, Linkedin, Mail } from "@ui/icon.astro";
-import LinkButton from "@ui/link.astro";
+import Card from "@/components/card.astro";
+import { Clock, Github, Linkedin, Mail } from "@/components/icon.astro";
 import { assertLocale } from "@/lib/error";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
 import { getLocaleBySite } from "@/locales/locale";
