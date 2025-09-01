@@ -217,21 +217,15 @@ export const ui = {
 		contactButton: "Trabajemos juntos",
 		projectsButton: "Ver mi trabajo",
 	},
-	about: {
-		title: "Sobre mí",
-	},
-	contact: {
-		title: "Contacto",
-		sendMessageBtn: "Enviar un mensaje",
-	},
+	about: { title: "Sobre mí" },
+	services: { title: "Servicios" },
+	skills: { title: "Stack Tecnológico" },
 	projects: {
 		title: "Projectos Destacados",
 		previewBtn: "Previsualizar",
 	},
-	skills: {
-		title: "Stack Tecnológico",
-	},
-	services: {
-		title: "Servicios",
+	contact: {
+		title: "Contacto",
+		sendMessageBtn: "Enviar un mensaje",
 	},
 } as const;

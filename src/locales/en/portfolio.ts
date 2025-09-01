@@ -207,28 +207,20 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export const ui = {
-	header: {
-		navItems: NAV_ITEMS,
-	},
+	header: { navItems: NAV_ITEMS },
 	hero: {
 		contactButton: "Work Together",
 		projectsButton: "View my work",
 	},
-	about: {
-		title: "About me",
-	},
-	contact: {
-		title: "Contact",
-		sendMessageBtn: "Send message",
-	},
+	about: { title: "About me" },
+	services: { title: "Services" },
+	skills: { title: "Tech Stack" },
 	projects: {
 		title: "Projects",
 		previewBtn: "Preview",
 	},
-	skills: {
-		title: "Tech Stack",
-	},
-	services: {
-		title: "Services",
+	contact: {
+		title: "Contact",
+		sendMessageBtn: "Send message",
 	},
 } as const;
