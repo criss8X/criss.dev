@@ -1,8 +1,15 @@
 ---
+import Card from "@portfolio/components/card.astro";
 import LinkButton from "@portfolio/components/link.astro";
 import Section from "@portfolio/components/section.astro";
-import Card from "@/components/card.astro";
-import { Clock, Github, Linkedin, Mail } from "@/components/icon.astro";
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Mail,
+  Terminal,
+} from "@/components/icon.astro";
 import { assertLocale } from "@/lib/error";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
 import { getLocaleBySite } from "@/locales/locale";
@@ -16,55 +23,137 @@ const { sendMessageBtn, title } = ui.contact;
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---
 
-<Section id="contact" title={title} className="max-w-4xl">
-  <Card className="bg-card/50 backdrop-blur border-border/50 max-w-2xl mx-auto">
-    <Card variant="content" className="pt-8 pb-8">
-      <div class="space-y-6">
-        <div class="text-sm text-purple-400 mb-4">
-          {"~/contact $ let's_build_something_amazing"}
+<Section id="contact" title={title} className="max-w-4xl" spacing="sm">
+  <div class="text-sm text-purple-400 mb-4">
+    {"~/contact $ let's_build_something_amazing"}
+  </div>
+
+  <p
+    class="text-md text-muted-foreground max-w-xl mx-auto"
+    set:html={descHtml}
+  />
+
+  <!-- Contact cards -->
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    <Card hasShine={true} spacing="sm">
+      <Card variant="content" className="text-center space-y-4">
+        <div class="text-center space-y-4">
+          <div
+            class="mx-auto size-12 bg-purple-600/20 rounded-lg flex items-center justify-center"
+          >
+            <Mail class="h-6 w-6 text-purple-400" />
+          </div>
+
+          <div>
+            <h3 class="font-console text-lg font-semibold mb-2">Email</h3>
+
+            <p class="text-sm text-muted-foreground mb-4">
+              Respuesta en menos de 24h
+            </p>
+          </div>
         </div>
+      </Card>
 
-        <p class="text-lg text-muted-foreground" set:html={descHtml} />
-
-        <div
-          class="flex items-center justify-center gap-2 text-sm text-muted-foreground"
+      <Card variant="footer" className="mt-auto">
+        <LinkButton
+          href="mailto:carralerocristianx@gmail.com"
+          className="bg-purple-600 hover:bg-purple-500 transition-colors w-full"
         >
-          <Clock class="h-4 w-4 text-green-400" />
+          {sendMessageBtn}
+        </LinkButton>
+      </Card>
+    </Card>
 
-          <span class="leading-relaxed">{label}</span>
+    <Card hasShine={true} spacing="sm">
+      <Card variant="content" className="text-center space-y-4">
+        <div
+          class="mx-auto w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center group-hover:bg-purple-600/30 transition-colors"
+        >
+          <Linkedin class="h-6 w-6 text-purple-400" />
         </div>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-          <LinkButton
-            href="mailto:carralerocristianx@gmail.com"
-            className="group"
-          >
-            <Mail class="h-4 w-4" />
+        <div>
+          <h3 class="font-console text-lg font-semibold mb-2">LinkedIn</h3>
 
-            {sendMessageBtn}
-          </LinkButton>
-
-          <LinkButton
-            href="https://www.linkedin.com/in/carralerocristianx/"
-            target="_blank"
-            variant="outline"
-          >
-            <Linkedin class="h-4 w-4 mr-2" />
-
-            LinkedIn
-          </LinkButton>
-
-          <LinkButton
-            href="https://github.com/criss8X"
-            target="_blank"
-            variant="outline"
-          >
-            <Github class="h-4 w-4 mr-2" />
-
-            GitHub
-          </LinkButton>
+          <p class="text-sm text-muted-foreground mb-4">
+            Conéctate profesionalmente
+          </p>
         </div>
+      </Card>
+
+      <Card variant="footer" className="mt-auto">
+        <LinkButton
+          variant="outline"
+          href="https://www.linkedin.com/in/carralerocristianx/"
+          target="_blank"
+          className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors w-full"
+        >
+          Conectar
+          <ExternalLink class="ml-2 h-4 w-4" />
+        </LinkButton>
+      </Card>
+    </Card>
+
+    <Card hasShine={true} spacing="sm">
+      <Card variant="content" className="text-center space-y-4">
+        <div
+          class="mx-auto w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center group-hover:bg-purple-600/30 transition-colors"
+        >
+          <Github class="h-6 w-6 text-purple-400" />
+        </div>
+
+        <div>
+          <h3 class="font-console text-lg font-semibold mb-2">GitHub</h3>
+          <p class="text-sm text-muted-foreground mb-4">Explora mi código</p>
+        </div>
+      </Card>
+
+      <Card variant="footer" className="mt-auto">
+        <LinkButton
+          variant="outline"
+          href="https://github.com/criss8X"
+          target="_blank"
+          className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors w-full"
+        >
+          Ver código
+          <ExternalLink class="ml-2 h-4 w-4" />
+        </LinkButton>
+      </Card>
+    </Card>
+  </div>
+
+  <Card className="max-w-2xl mx-auto">
+    <Card variant="content" className="text-center space-y-4">
+      <div
+        class="flex items-center text-sm justify-center gap-2 text-purple-400"
+      >
+        <Terminal class="size-4.5" />
+
+        Formulario avanzado
       </div>
+
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold">¿Necesitas algo más específico?</h2>
+
+        <p class="text-sm text-muted-foreground">
+          Usa nuestro formulario avanzado con plantillas predefinidas, enlaces a
+          proyectos específicos, y campos estructurados para describir tu
+          proyecto de manera detallada.
+        </p>
+      </div>
+    </Card>
+
+    <Card variant="footer" className="mt-auto mx-auto">
+      <LinkButton
+        size="lg"
+        href="portfolio/contact"
+        variant="outline"
+        className="border-b-2"
+      >
+        <span class="text-xs">Abrir formulario avanzado</span>
+
+        <ArrowRight class="ml-1" />
+      </LinkButton>
     </Card>
   </Card>
 </Section>

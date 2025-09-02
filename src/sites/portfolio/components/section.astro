@@ -1,21 +1,35 @@
 ---
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+
+const sectionVariants = cva("container mx-auto px-4 py-20 text-center", {
+  variants: {
+    spacing: {
+      none: "space-y-0",
+      sm: "space-y-6",
+      default: "space-y-8",
+      lg: "space-y-12",
+    },
+  },
+  defaultVariants: {
+    spacing: "default",
+  },
+});
 
 interface Props {
   id: string;
   title: string;
   className?: string;
+  spacing?: VariantProps<typeof sectionVariants>["spacing"];
 }
 
-const { id, title, className } = Astro.props;
+const { id, title, className, spacing } = Astro.props;
 ---
 
-<section id={id} class={cn("container mx-auto px-4 py-20", className)}>
-  <div class="text-center space-y-12">
-    <h2 class="text-3xl md:text-4xl font-bold">
-      <span class="text-purple-400">// </span>{title}
-    </h2>
+<section id={id} class={cn(sectionVariants({ className, spacing }))}>
+  <h2 class="text-3xl md:text-4xl font-bold">
+    <span class="text-purple-400">// </span>{title}
+  </h2>
 
-    <slot />
-  </div>
+  <slot />
 </section>

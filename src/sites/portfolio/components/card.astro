@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 const cardVariants = cva("", {
   variants: {
     variant: {
-      root: "bg-card/50 text-card-foreground flex flex-col gap-6 rounded-xl border border-border/50 py-6 shadow-sm",
+      root: "bg-card/50 text-card-foreground flex flex-col rounded-xl border border-border/50 py-6 shadow-sm",
       header:
         "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
       footer: "flex items-center px-6 [.border-t]:pt-6",
@@ -14,9 +14,20 @@ const cardVariants = cva("", {
       action: "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
       title: "leading-none font-semibold",
     },
+    spacing: {
+      sm: "gap-2",
+      md: "gap-4",
+      lg: "gap-6",
+    },
+    rounded: {
+      small: "rounded-sm",
+      large: "rounded-xl",
+    },
   },
   defaultVariants: {
     variant: "root",
+    spacing: "lg",
+    rounded: "small",
   },
 });
 
@@ -24,9 +35,11 @@ interface Props {
   className?: string;
   hasShine?: boolean;
   variant?: VariantProps<typeof cardVariants>["variant"];
+  spacing?: VariantProps<typeof cardVariants>["spacing"];
+  rounded?: VariantProps<typeof cardVariants>["rounded"];
 }
 
-const { className, variant, hasShine } = Astro.props;
+const { className, variant, spacing, rounded, hasShine } = Astro.props;
 
 const dataSlot = variant === "root" ? "card" : `card-${variant}`;
 ---
@@ -36,7 +49,7 @@ const dataSlot = variant === "root" ? "card" : `card-${variant}`;
   class={cn(
     hasShine &&
       "group overflow-hidden relative hover:border-purple-400/50 transition-all duration-300",
-    cardVariants({ variant }),
+    cardVariants({ variant, spacing, rounded }),
     className,
   )}
 >

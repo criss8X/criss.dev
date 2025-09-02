@@ -225,7 +225,7 @@ export const ui = {
 		previewBtn: "Previsualizar",
 	},
 	contact: {
-		title: "Contacto",
+		title: "¿Listo para empezar?",
 		sendMessageBtn: "Enviar un mensaje",
 	},
 } as const;
