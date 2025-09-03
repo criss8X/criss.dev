@@ -66,10 +66,6 @@ const CONTACT = {
 	contactDescription:
 		"Tengo **disponibilidad inmediata** para proyectos nuevos. Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.",
 	label: "Respuesta en menos de 24h",
-	formAdvancedTitle: "Formulario avanzado",
-	formAdvancedSubTitle: "¿Necesitas algo más específico?",
-	formAdvancedDescription:
-		"Usa nuestro formulario avanzado con plantillas predefinidas, enlaces a proyectos específicos, y campos estructurados para describir tu proyecto de manera detallada.",
 };
 
 const ABOUT = {
@@ -235,6 +231,5 @@ export const ui = {
 		connectBtn: "Conectar",
 		viewCodeLabel: "Explora mi código",
 		viewCodeBtn: "Ver código",
-		openFormBtn: "Abrir formulario avanzado",
 	},
 } as const;

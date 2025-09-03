@@ -17,19 +17,12 @@ import { getLocaleBySite } from "@/locales/locale";
 const lang = assertLocale(Astro.currentLocale);
 const { content, ui } = getLocaleBySite("portfolio", lang);
 
-const {
-  contactDescription,
-  label,
-  formAdvancedDescription,
-  formAdvancedSubTitle,
-  formAdvancedTitle,
-} = content.contact;
+const { contactDescription, label } = content.contact;
 
 const {
   sendMessageBtn,
   title,
   connectBtn,
-  openFormBtn,
   viewCodeBtn,
   connectLabel,
   viewCodeLabel,
@@ -134,37 +127,4 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
       </Card>
     </Card>
   </div>
-
-  <Card className="max-w-2xl mx-auto">
-    <Card variant="content" className="text-center space-y-4">
-      <div
-        class="flex items-center text-sm justify-center gap-2 text-purple-400"
-      >
-        <Terminal class="size-4.5" />
-
-        {formAdvancedTitle}
-      </div>
-
-      <div class="space-y-2">
-        <h2 class="text-lg font-semibold">{formAdvancedSubTitle}</h2>
-
-        <p class="text-sm text-muted-foreground">
-          {formAdvancedDescription}
-        </p>
-      </div>
-    </Card>
-
-    <Card variant="footer" className="mt-auto mx-auto">
-      <LinkButton
-        size="lg"
-        href="portfolio/contact"
-        variant="outline"
-        className="border-b-2"
-      >
-        <span class="text-xs">{openFormBtn}</span>
-
-        <ArrowRight class="ml-1" />
-      </LinkButton>
-    </Card>
-  </Card>
 </Section>
