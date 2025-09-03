@@ -17,8 +17,23 @@ import { getLocaleBySite } from "@/locales/locale";
 const lang = assertLocale(Astro.currentLocale);
 const { content, ui } = getLocaleBySite("portfolio", lang);
 
-const { contactDescription, label } = content.contact;
-const { sendMessageBtn, title } = ui.contact;
+const {
+  contactDescription,
+  label,
+  formAdvancedDescription,
+  formAdvancedSubTitle,
+  formAdvancedTitle,
+} = content.contact;
+
+const {
+  sendMessageBtn,
+  title,
+  connectBtn,
+  openFormBtn,
+  viewCodeBtn,
+  connectLabel,
+  viewCodeLabel,
+} = ui.contact;
 
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---
@@ -48,7 +63,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
             <h3 class="font-console text-lg font-semibold mb-2">Email</h3>
 
             <p class="text-sm text-muted-foreground mb-4">
-              Respuesta en menos de 24h
+              {label}
             </p>
           </div>
         </div>
@@ -57,7 +72,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
       <Card variant="footer" className="mt-auto">
         <LinkButton
           href="mailto:carralerocristianx@gmail.com"
-          className="bg-purple-600 hover:bg-purple-500 transition-colors w-full"
+          className="flex-1"
         >
           {sendMessageBtn}
         </LinkButton>
@@ -67,16 +82,16 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
     <Card hasShine={true} spacing="sm">
       <Card variant="content" className="text-center space-y-4">
         <div
-          class="mx-auto w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center group-hover:bg-purple-600/30 transition-colors"
+          class="mx-auto size-12 bg-purple-600/20 rounded-lg flex items-center justify-center group-hover:bg-purple-600/30 transition-colors"
         >
-          <Linkedin class="h-6 w-6 text-purple-400" />
+          <Linkedin class="size-6 text-purple-400" />
         </div>
 
         <div>
           <h3 class="font-console text-lg font-semibold mb-2">LinkedIn</h3>
 
           <p class="text-sm text-muted-foreground mb-4">
-            Conéctate profesionalmente
+            {connectLabel}
           </p>
         </div>
       </Card>
@@ -86,10 +101,9 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
           variant="outline"
           href="https://www.linkedin.com/in/carralerocristianx/"
           target="_blank"
-          className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors w-full"
+          className="flex-1 hover:text-purple-300"
         >
-          Conectar
-          <ExternalLink class="ml-2 h-4 w-4" />
+          {connectBtn}
         </LinkButton>
       </Card>
     </Card>
@@ -104,7 +118,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
 
         <div>
           <h3 class="font-console text-lg font-semibold mb-2">GitHub</h3>
-          <p class="text-sm text-muted-foreground mb-4">Explora mi código</p>
+          <p class="text-sm text-muted-foreground mb-4">{viewCodeLabel}</p>
         </div>
       </Card>
 
@@ -113,10 +127,9 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
           variant="outline"
           href="https://github.com/criss8X"
           target="_blank"
-          className="border-purple-400/50 text-purple-300 bg-transparent hover:bg-purple-400/20 hover:border-purple-400/70 hover:text-purple-200 transition-colors w-full"
+          className="flex-1 hover:text-purple-300"
         >
-          Ver código
-          <ExternalLink class="ml-2 h-4 w-4" />
+          {viewCodeBtn}
         </LinkButton>
       </Card>
     </Card>
@@ -129,16 +142,14 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
       >
         <Terminal class="size-4.5" />
 
-        Formulario avanzado
+        {formAdvancedTitle}
       </div>
 
       <div class="space-y-2">
-        <h2 class="text-lg font-semibold">¿Necesitas algo más específico?</h2>
+        <h2 class="text-lg font-semibold">{formAdvancedSubTitle}</h2>
 
         <p class="text-sm text-muted-foreground">
-          Usa nuestro formulario avanzado con plantillas predefinidas, enlaces a
-          proyectos específicos, y campos estructurados para describir tu
-          proyecto de manera detallada.
+          {formAdvancedDescription}
         </p>
       </div>
     </Card>
@@ -150,7 +161,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
         variant="outline"
         className="border-b-2"
       >
-        <span class="text-xs">Abrir formulario avanzado</span>
+        <span class="text-xs">{openFormBtn}</span>
 
         <ArrowRight class="ml-1" />
       </LinkButton>

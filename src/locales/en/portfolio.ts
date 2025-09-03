@@ -65,7 +65,11 @@ const HERO = {
 const CONTACT = {
 	contactDescription:
 		"I'm **immediately available** for new projects. Let's talk about how I can help you achieve your goals.",
-	label: "Response guaranteed in less than 24 hours",
+	label: "Response in less than 24h",
+	formAdvancedTitle: "Advanced form",
+	formAdvancedSubTitle: "Need something more specific?",
+	formAdvancedDescription:
+		"Use our advanced form with pre-defined templates, links to specific projects, and structured fields to describe your project in detail.",
 };
 
 const ABOUT = {
@@ -222,5 +226,10 @@ export const ui = {
 	contact: {
 		title: "Contact",
 		sendMessageBtn: "Send message",
+		connectLabel: "Connect professionally",
+		connectBtn: "Connect",
+		viewCodeLabel: "Explore my code",
+		viewCodeBtn: "View code",
+		openFormBtn: "Open advanced form",
 	},
 } as const;
