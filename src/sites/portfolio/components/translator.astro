@@ -1,0 +1,34 @@
+---
+import LinkButton from "@portfolio/components/link.astro";
+import { Sparkles } from "@/components/icon.astro";
+
+const locale = Astro.currentLocale;
+
+const isSpanish = locale === "es";
+---
+
+{
+  !isSpanish && (
+    <div
+      id="translator"
+      class="absolute top-20 w-full justify-center z-50 flex items-center gap-2"
+    >
+      <LinkButton
+        variant="outline"
+        size="sm"
+        href="/es"
+        className="rounded-full"
+      >
+        <Sparkles class="size-3.5" />
+
+        <span class="text-xs leading-relaxed ml-1">Translate to Spanish</span>
+      </LinkButton>
+    </div>
+  )
+}
+
+<script is:inline>
+  setTimeout(() => {
+    document.getElementById("translator").style.display = "none";
+  }, 8000);
+</script>
