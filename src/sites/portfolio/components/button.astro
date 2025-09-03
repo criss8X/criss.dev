@@ -35,15 +35,15 @@ export const buttonVariants = cva(
 export type ButtonVariants = VariantProps<typeof buttonVariants>["variant"];
 export type ButtonSize = VariantProps<typeof buttonVariants>["size"];
 
-interface Props {
+interface Props extends Omit<astroHTML.JSX.ButtonHTMLAttributes, "class"> {
   variant?: ButtonVariants;
   size?: ButtonSize;
   className?: string;
 }
 
-const { variant, size, className } = Astro.props as Props;
+const { variant, size, className, ...props } = Astro.props as Props;
 ---
 
-<button class={cn(buttonVariants({ variant, size, className }))}>
+<button class={cn(buttonVariants({ variant, size, className }))} {...props}>
   <slot />
 </button>
