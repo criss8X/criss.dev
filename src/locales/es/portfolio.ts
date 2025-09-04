@@ -1,3 +1,4 @@
+import projects from "@/assets/content/projects.json";
 import {
 	Code,
 	Github,
@@ -8,43 +9,9 @@ import {
 	Zap,
 } from "@/components/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
+import type { Project } from "../en/portfolio";
 
-type Project = {
-	name: string;
-	desc: string;
-	stack: string[];
-	github: string;
-	preview?: string;
-};
-
-const PROJECTS: Project[] = [
-	{
-		name: "Force4G",
-		desc: "Aplicación para forzar la 4G del teléfono que ocupa menos de 250 KB",
-		stack: ["Kotlin", "Mobile Dev"],
-		github: "https://github.com/criss8X/Force4G",
-	},
-	{
-		name: "Mirage",
-		desc: "Cliente web simple, ligero y personalizable para el protocolo Matrix con interfaz limpia y fácil de usar",
-		stack: [
-			"TypeScript",
-			"React",
-			"SCSS/SASS",
-			"Matrix JS SDK",
-			"Vite.js",
-			"Zustand",
-			"Storybook.js",
-		],
-		github: "https://github.com/yuri-xyz/mirage",
-	},
-	{
-		name: "ERC20 Vault",
-		desc: "Contrato inteligente para almacenamiento seguro de tokens ERC20 con funcionalidades de depósito y retiro",
-		stack: ["Solidity", "Ethereum", "Smart Contracts", "Web3"],
-		github: "https://github.com/yuri-xyz/erc20-vault",
-	},
-];
+const PROJECTS: Project[] = projects.es;
 
 const HERO = {
 	mainStack: "Frontend • Backend • Web3",

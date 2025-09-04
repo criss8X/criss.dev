@@ -1,3 +1,4 @@
+import projectsEn from "@/assets/content/projects.json";
 import {
 	Code,
 	Github,
@@ -9,7 +10,7 @@ import {
 } from "@/components/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
 
-type Project = {
+export type Project = {
 	name: string;
 	desc: string;
 	stack: string[];
@@ -17,34 +18,7 @@ type Project = {
 	preview?: string;
 };
 
-const PROJECTS: Project[] = [
-	{
-		name: "Force4G",
-		desc: "Lightweight application to force 4G on your phone, taking up less than 250KB",
-		stack: ["Kotlin", "Mobile Dev"],
-		github: "https://github.com/criss8X/Force4G",
-	},
-	{
-		name: "Mirage",
-		desc: "Simple, lightweight, and customizable web client for the Matrix protocol with a clean and user-friendly interface",
-		stack: [
-			"TypeScript",
-			"React",
-			"SCSS/SASS",
-			"Matrix JS SDK",
-			"Vite.js",
-			"Zustand",
-			"Storybook.js",
-		],
-		github: "https://github.com/yuri-xyz/mirage",
-	},
-	{
-		name: "ERC20 Vault",
-		desc: "Smart contract for secure ERC20 token storage with deposit and withdrawal functionality",
-		stack: ["Solidity", "Ethereum", "Smart Contracts", "Web3"],
-		github: "https://github.com/yuri-xyz/erc20-vault",
-	},
-];
+const PROJECTS: Project[] = projectsEn.en;
 
 const HERO = {
 	mainStack: "Frontend • Backend • Web3",
