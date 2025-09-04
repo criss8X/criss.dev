@@ -9,7 +9,7 @@ import {
 	Zap,
 } from "@/components/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
-import type { Project } from "../en/portfolio";
+import type { Project } from "../type";
 
 const PROJECTS: Project[] = projects.es;
 

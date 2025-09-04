@@ -1,5 +1,7 @@
 import * as portfolioEn from "@/locales/en/portfolio";
 import * as portfolioEs from "@/locales/es/portfolio";
+import * as skillsEn from "@/locales/portfolio/skills-en";
+import * as skillsEs from "@/locales/portfolio/skills-es";
 
 type Sites = "portfolio";
 
@@ -11,6 +13,12 @@ export function getLocaleBySite(site: Sites, lang: string) {
 			return lang === "es" ? portfolioEs : portfolioEn;
 		}
 	}
+}
+
+export function getSkillsLocale(lang?: string) {
+	assertTypes(skillsEn, skillsEs);
+
+	return lang === "es" ? skillsEs : skillsEn;
 }
 
 function assertTypes(a: unknown, b: unknown) {

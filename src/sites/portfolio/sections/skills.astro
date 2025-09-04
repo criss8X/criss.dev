@@ -2,20 +2,15 @@
 import Badge from "@/components/badge.astro";
 import Card from "@/components/card.astro";
 import Section from "@/components/section.astro";
-import { assertLocale } from "@/lib/error";
-import { getLocaleBySite } from "@/locales/locale";
+import { getSkillsLocale } from "@/locales/locale";
 
-const lang = assertLocale(Astro.currentLocale);
-const { content, ui } = getLocaleBySite("portfolio", lang);
-
-const { title } = ui.skills;
-const skills = content.skills;
+const { SKILLS, UI } = getSkillsLocale(Astro.currentLocale);
 ---
 
-<Section id="skills" title={title} className="max-w-6xl">
+<Section id="skills" title={UI.title} className="max-w-6xl">
   <div class="grid md:grid-cols-2 gap-8">
     {
-      skills.map(({ title, description, stack, icon: Icon }) => (
+      SKILLS.map(({ title, description, stack, icon: Icon }) => (
         <Card>
           <Card variant="header" className="text-center">
             <Card

@@ -1,22 +1,7 @@
 import projectsEn from "@/assets/content/projects.json";
-import {
-	Code,
-	Github,
-	Palette,
-	Rocket,
-	Shield,
-	Terminal,
-	Zap,
-} from "@/components/icon.astro";
+import { Code, type Palette, Rocket, Shield } from "@/components/icon.astro";
 import type { NavItem } from "@/sites/portfolio/sections/header.astro";
-
-export type Project = {
-	name: string;
-	desc: string;
-	stack: string[];
-	github: string;
-	preview?: string;
-};
+import type { Project } from "../type";
 
 const PROJECTS: Project[] = projectsEn.en;
 
@@ -50,61 +35,6 @@ const ABOUT = {
 	location: "Puerto Padre, Las Tunas, Cuba",
 	time: "GMT-5 (Flexible)",
 };
-
-type Skill = {
-	title: string;
-	description: string;
-	stack: string[];
-	icon: typeof Palette;
-};
-
-const SKILLS: Skill[] = [
-	{
-		title: "Frontend Development",
-		description: "Modern interfaces and exceptional user experiences",
-		icon: Palette,
-		stack: [
-			"React",
-			"TypeScript",
-			"Tailwind CSS",
-			"React Router",
-			"HTML5 & SEO",
-			"Next.js",
-		],
-	},
-	{
-		title: "Backend & Database",
-		description: "Robust APIs and efficient data management",
-		icon: Zap,
-		stack: [
-			"Node.js",
-			"Fastify",
-			"PostgreSQL",
-			"Drizzle ORM",
-			"Cloudflare Workers",
-			"SQL",
-		],
-	},
-	{
-		title: "Web3 & Blockchain",
-		description: "Smart contracts and decentralized applications",
-		icon: Terminal,
-		stack: ["Solidity", "Vyper", "Viem & Wagmi", "Rainbowkit", "IPFS"],
-	},
-	{
-		title: "Tools & Languages",
-		description: "Development tools and additional languages",
-		icon: Github,
-		stack: [
-			"Git & GitHub",
-			"Rust",
-			"Kotlin",
-			"GitHub Actions",
-			"VsCode",
-			"Arch Linux",
-		],
-	},
-];
 
 type Service = {
 	title: string;
@@ -166,7 +96,6 @@ export const content = {
 	hero: HERO,
 	contact: CONTACT,
 	about: ABOUT,
-	skills: SKILLS,
 	services: SERVICES,
 } as const;
 
