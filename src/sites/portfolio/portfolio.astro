@@ -5,13 +5,15 @@ import Footer from "@portfolio/sections/footer.astro";
 import Header from "@portfolio/sections/header.astro";
 import Hero from "@portfolio/sections/hero.astro";
 import Projects from "@portfolio/sections/projects.astro";
+import Services from "@portfolio/sections/services.astro";
 import Skills from "@portfolio/sections/skills.astro";
+import Translator from "@/components/translator.astro";
+import { getMetaLocale } from "@/locales/locale";
 
 import "@/styles/global.css";
-import Services from "@portfolio/sections/services.astro";
-import Translator from "@/components/translator.astro";
 
 const lang = Astro.currentLocale;
+const { KEYWORDS, DESCRIPTION, CANONICAL, OG_LOCALE } = getMetaLocale(lang);
 ---
 
 <html lang={lang} class="dark">
@@ -19,8 +21,59 @@ const lang = Astro.currentLocale;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/icons/zap.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+
     <title>Criss's portfolio</title>
+    <meta name="description" content="Criss's portfolio" />
+
+    <meta name="author" content="Cristian Carralero" />
+    <meta name="keywords" content={KEYWORDS} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={CANONICAL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon-180x180.png"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={CANONICAL} />
+    <meta property="og:title" content="Cristian - Fullstack & Web3" />
+
+    <meta property="og:description" content={DESCRIPTION} />
+
+    <meta property="og:image" content="https://crisscode.xyz/og-image.png" />
+
+    <meta property="og:site_name" content="Criss's Portfolio" />
+    <meta property="og:locale" content={OG_LOCALE} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={CANONICAL} />
+    <meta name="twitter:title" content="Cristian - Fullstack & Web3" />
+    <meta name="twitter:description" content={DESCRIPTION} />
+    <meta name="twitter:image" content="https://crisscode.xyz/og-image.png" />
+    <meta name="twitter:creator" content="@carralero706" />
+
+    <!-- Structured Data -->
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Cristian Carralero",
+        "url": "https://crisscode.xyz",
+        "jobTitle": "Full-Stack & Web3 Developer",
+        "sameAs": [
+          "https://github.com/criss8X",
+          "https://linkedin.com/in/cristian-carralero",
+          "https://x.com/carralero706/"
+        ]
+      }
+    </script>
   </head>
 
   <body class="min-h-screen bg-black text-white grid-pattern">

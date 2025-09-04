@@ -1,5 +1,7 @@
 import * as contactEn from "@/locales/portfolio/contact-en";
 import * as contactEs from "@/locales/portfolio/contact-es";
+import * as metaEn from "@/locales/portfolio/meta-en";
+import * as metaEs from "@/locales/portfolio/meta-es";
 import * as portfolioEn from "@/locales/portfolio/portfolio-en";
 import * as portfolioEs from "@/locales/portfolio/portfolio-es";
 import * as servicesEn from "@/locales/portfolio/services-en";
@@ -41,6 +43,12 @@ export function getContactLocale(lang?: string) {
 	assertTypes(contactEn, contactEs);
 
 	return lang === "es" ? contactEs : contactEn;
+}
+
+export function getMetaLocale(lang?: string) {
+	assertTypes(metaEn, metaEs);
+
+	return lang === "es" ? metaEs : metaEn;
 }
 
 function assertTypes(a: unknown, b: unknown) {
