@@ -17,16 +17,9 @@ import { getLocaleBySite } from "@/locales/locale";
 const lang = assertLocale(Astro.currentLocale);
 const { content, ui } = getLocaleBySite("portfolio", lang);
 
-const { contactDescription, label } = content.contact;
+const { contactDescription } = content.contact;
 
-const {
-  sendMessageBtn,
-  title,
-  connectBtn,
-  viewCodeBtn,
-  connectLabel,
-  viewCodeLabel,
-} = ui.contact;
+const { sendMessageBtn, title, connectBtn, viewCodeBtn } = ui.contact;
 
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---
@@ -55,8 +48,8 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
           <div>
             <h3 class="font-console text-lg font-semibold mb-2">Email</h3>
 
-            <p class="text-sm text-muted-foreground mb-4">
-              {label}
+            <p class="text-sm text-muted-foreground mb-4 truncate">
+              carralerocristianx@gmail.com
             </p>
           </div>
         </div>
@@ -83,9 +76,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
         <div>
           <h3 class="font-console text-lg font-semibold mb-2">LinkedIn</h3>
 
-          <p class="text-sm text-muted-foreground mb-4">
-            {connectLabel}
-          </p>
+          <p class="text-sm text-muted-foreground mb-4">@carralerocristianx</p>
         </div>
       </Card>
 
@@ -111,7 +102,7 @@ const descHtml = parseHighlightsFromParagraph(contactDescription);
 
         <div>
           <h3 class="font-console text-lg font-semibold mb-2">GitHub</h3>
-          <p class="text-sm text-muted-foreground mb-4">{viewCodeLabel}</p>
+          <p class="text-sm text-muted-foreground mb-4">@criss8X</p>
         </div>
       </Card>
 

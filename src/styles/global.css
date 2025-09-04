@@ -281,3 +281,15 @@
 			200% -50%;
 	}
 }
+
+::-webkit-scrollbar-thumb {
+	@apply bg-neutral-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-neutral-700;
+}
+
+::-webkit-scrollbar {
+	@apply w-2;
+}

@@ -222,9 +222,7 @@ export const ui = {
 	contact: {
 		title: "Contact",
 		sendMessageBtn: "Send message",
-		connectLabel: "Connect professionally",
 		connectBtn: "Connect",
-		viewCodeLabel: "Explore my code",
 		viewCodeBtn: "View code",
 	},
 } as const;
