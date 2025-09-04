@@ -27,9 +27,9 @@ const { SERVICES, UI } = getServicesLocale(Astro.currentLocale);
           </Card>
 
           <Card variant="content" className="space-y-4">
-            <ul class="flex flex-col max-h-36 flex-wrap gap-4 md:space-y-2 md:block md:max-h-max">
+            <ul class="flex flex-col flex-wrap gap-4 md:space-y-2">
               {features.map((feature) => (
-                <li class="flex items-center gap-2 text-sm">
+                <li class="flex items-center gap-2 text-sm truncate">
                   <CheckCircle class="h-4 w-4 text-green-400" />
 
                   {feature}
