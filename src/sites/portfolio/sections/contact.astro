@@ -1,7 +1,5 @@
 ---
-import Card from "@portfolio/components/card.astro";
-import LinkButton from "@portfolio/components/link.astro";
-import Section from "@portfolio/components/section.astro";
+import Card from "@/components/card.astro";
 import {
   ArrowRight,
   ExternalLink,
@@ -10,6 +8,8 @@ import {
   Mail,
   Terminal,
 } from "@/components/icon.astro";
+import LinkButton from "@/components/link.astro";
+import Section from "@/components/section.astro";
 import { assertLocale } from "@/lib/error";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
 import { getLocaleBySite } from "@/locales/locale";
