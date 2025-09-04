@@ -1,4 +1,5 @@
 {
 	"tailwindCSS.classFunctions": ["cva"],
-	"cSpell.words": ["IPFS"]
+	"cSpell.words": ["IPFS"],
+	"css.lint.unknownAtRules": "ignore"
 }
