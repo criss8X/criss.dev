@@ -1,16 +1,14 @@
 ---
-import { assertLocale } from "@/lib/error";
-import { getLocaleBySite } from "@/locales/locale";
+import { getPortfolioLocale } from "@/locales/locale";
 
 export type NavItem = {
   name: string;
   id: string;
 };
 
-const lang = assertLocale(Astro.currentLocale);
-const { ui } = getLocaleBySite("portfolio", lang);
+const { UI } = getPortfolioLocale(Astro.currentLocale);
 
-const navItems = ui.header.navItems;
+const navItems = UI.header.navItems;
 ---
 
 <header

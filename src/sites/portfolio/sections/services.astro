@@ -2,17 +2,15 @@
 import Card from "@/components/card.astro";
 import { CheckCircle } from "@/components/icon.astro";
 import Section from "@/components/section.astro";
-import { assertLocale } from "@/lib/error";
-import { getLocaleBySite } from "@/locales/locale";
+import { getServicesLocale } from "@/locales/locale";
 
-const lang = assertLocale(Astro.currentLocale);
-const { content, ui } = getLocaleBySite("portfolio", lang);
+const { SERVICES, UI } = getServicesLocale(Astro.currentLocale);
 ---
 
-<Section id="services" title={ui.services.title} className="max-w-6xl">
+<Section id="services" title={UI.title} className="max-w-6xl">
   <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
     {
-      content.services.map(({ description, features, title, icon: Icon }) => (
+      SERVICES.map(({ description, features, title, icon: Icon }) => (
         <Card className="overflow-hidden">
           <Card variant="header" className="text-center">
             <div class="mx-auto mb-4 p-3 bg-purple-600/20 rounded-lg w-fit">

@@ -14,3 +14,10 @@ export type Skill = {
 	stack: string[];
 	icon: LucideIcon;
 };
+
+export type Service = {
+	title: string;
+	description: string;
+	features: string[];
+	icon: LucideIcon;
+};

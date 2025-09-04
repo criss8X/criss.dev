@@ -4,20 +4,17 @@ import Card from "@/components/card.astro";
 import { ExternalLink, Github } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
 import Section from "@/components/section.astro";
-import { assertLocale } from "@/lib/error";
-import { getLocaleBySite } from "@/locales/locale";
+import { getPortfolioLocale } from "@/locales/locale";
 
-const lang = assertLocale(Astro.currentLocale);
-const { content, ui } = getLocaleBySite("portfolio", lang);
+const { UI, PROJECTS } = getPortfolioLocale(Astro.currentLocale);
 
-const projects = content.projects;
-const { previewBtn, title } = ui.projects;
+const { previewBtn, title } = UI.projects;
 ---
 
 <Section id="projects" title={title} className="max-w-6xl">
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
-      projects.map(({ name, desc, stack, github, preview }) => (
+      PROJECTS.map(({ name, desc, stack, github, preview }) => (
         <Card hasShine={true}>
           <Card variant="header">
             <Card

@@ -2,15 +2,12 @@
 import Badge from "@/components/badge.astro";
 import { ArrowRight } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
-import { assertLocale } from "@/lib/error";
-import { getLocaleBySite } from "@/locales/locale";
+import { getPortfolioLocale } from "@/locales/locale";
 
-const lang = assertLocale(Astro.currentLocale);
+const { UI } = getPortfolioLocale(Astro.currentLocale);
 
-const { content, ui } = getLocaleBySite("portfolio", lang);
-
-const { description, mainSkills, mainStack } = content.hero;
-const { contactButton, projectsButton } = ui.hero;
+const { description, mainSkills, mainStack, contactButton, projectsButton } =
+  UI.hero;
 ---
 
 <section class="container mx-auto max-w-6xl px-4 py-24 md:py-32">

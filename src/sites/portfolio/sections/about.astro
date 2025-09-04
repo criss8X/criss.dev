@@ -2,19 +2,17 @@
 import Card from "@/components/card.astro";
 import { Clock, MapPin } from "@/components/icon.astro";
 import Section from "@/components/section.astro";
-import { assertLocale } from "@/lib/error";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { getLocaleBySite } from "@/locales/locale";
+import { getPortfolioLocale } from "@/locales/locale";
 
-const lang = assertLocale(Astro.currentLocale);
+const { UI } = getPortfolioLocale(Astro.currentLocale);
 
-const { content, ui } = getLocaleBySite("portfolio", lang);
-const { location, markdown, time } = content.about;
+const { location, markdown, time, title } = UI.about;
 
 const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---
 
-<Section id="about" title={ui.about.title} className="max-w-4xl">
+<Section id="about" title={title} className="max-w-4xl">
   <Card>
     <Card variant="content" className="pt-8 pb-8">
       <div class="space-y-6">
