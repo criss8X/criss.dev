@@ -1,5 +1,5 @@
 export const UI = {
-	title: "¿Listo para empezar?",
+	title: "Contáctame",
 	sendMessageBtn: "Enviar un mensaje",
 	connectBtn: "Conectar",
 	viewCodeBtn: "Ver código",

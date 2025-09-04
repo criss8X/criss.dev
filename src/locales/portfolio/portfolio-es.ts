@@ -46,7 +46,7 @@ export const UI = {
 	},
 
 	projects: {
-		title: "Projectos Destacados",
+		title: "Projectos",
 		previewBtn: "Previsualizar",
 	},
 };
