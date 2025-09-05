@@ -1,59 +1,67 @@
 {
-	"es": [
-		{
-			"name": "Force4G",
-			"desc": "Aplicación para forzar la 4G del teléfono que ocupa menos de 250 KB",
-			"github": "https://github.com/criss8X/Force4G",
-			"stack": ["Kotlin", "Mobile Dev"]
-		},
-		{
-			"name": "Mirage",
-			"desc": "Cliente web simple, ligero y personalizable para el protocolo Matrix con interfaz limpia y fácil de usar",
-			"github": "https://github.com/yuri-xyz/mirage",
-			"stack": [
-				"TypeScript",
-				"React",
-				"SCSS/SASS",
-				"Matrix JS SDK",
-				"Vite.js",
-				"Zustand",
-				"Storybook.js"
-			]
-		},
-		{
-			"name": "ERC20 Vault",
-			"desc": "Contrato inteligente para almacenamiento seguro de tokens ERC20 con funcionalidades de depósito y retiro",
-			"github": "https://github.com/yuri-xyz/erc20-vault",
-			"stack": ["Solidity", "Ethereum", "Smart Contracts", "Web3"]
-		}
-	],
+	"es": {
+		"title": "Projectos",
+		"previewBtn": "Previsualizar",
+		"projects": [
+			{
+				"name": "Force4G",
+				"desc": "Aplicación para forzar la 4G del teléfono que ocupa menos de 250 KB",
+				"github": "https://github.com/criss8X/Force4G",
+				"stack": ["Kotlin", "Mobile Dev"]
+			},
+			{
+				"name": "Mirage",
+				"desc": "Cliente web simple, ligero y personalizable para el protocolo Matrix con interfaz limpia y fácil de usar",
+				"github": "https://github.com/yuri-xyz/mirage",
+				"stack": [
+					"TypeScript",
+					"React",
+					"SCSS/SASS",
+					"Matrix JS SDK",
+					"Vite.js",
+					"Zustand",
+					"Storybook.js"
+				]
+			},
+			{
+				"name": "ERC20 Vault",
+				"desc": "Contrato inteligente para almacenamiento seguro de tokens ERC20 con funcionalidades de depósito y retiro",
+				"github": "https://github.com/yuri-xyz/erc20-vault",
+				"stack": ["Solidity", "Ethereum", "Smart Contracts", "Web3"]
+			}
+		]
+	},
 
-	"en": [
-		{
-			"name": "Force4G",
-			"desc": "Lightweight application to force 4G on your phone, taking up less than 250KB",
-			"github": "https://github.com/criszs8X/Force4G",
-			"stack": ["Kotlin", "Mobile Dev"]
-		},
-		{
-			"name": "Mirage",
-			"desc": "Simple, lightweight, and customizable web client for the Matrix protocol with a clean and user-friendly interface",
-			"github": "https://github.com/yuri-xyz/mirage",
-			"stack": [
-				"TypeScript",
-				"React",
-				"SCSS/SASS",
-				"Matrix JS SDK",
-				"Vite.js",
-				"Zustand",
-				"Storybook.js"
-			]
-		},
-		{
-			"name": "ERC20 Vault",
-			"desc": "Smart contract for secure ERC20 token storage with deposit and withdrawal functionality",
-			"github": "https://github.com/yuri-xyz/erc20-vault",
-			"stack": ["Solidity", "Ethereum", "Smart Contracts", "Web3"]
-		}
-	]
+	"en": {
+		"title": "Projects",
+		"previewBtn": "Preview",
+		"projects": [
+			{
+				"name": "Force4G",
+				"desc": "Lightweight application to force 4G on your phone, taking up less than 250KB",
+				"github": "https://github.com/criszs8X/Force4G",
+				"stack": ["Kotlin", "Mobile Dev"]
+			},
+			{
+				"name": "Mirage",
+				"desc": "Simple, lightweight, and customizable web client for the Matrix protocol with a clean and user-friendly interface",
+				"github": "https://github.com/yuri-xyz/mirage",
+				"stack": [
+					"TypeScript",
+					"React",
+					"SCSS/SASS",
+					"Matrix JS SDK",
+					"Vite.js",
+					"Zustand",
+					"Storybook.js"
+				]
+			},
+			{
+				"name": "ERC20 Vault",
+				"desc": "Smart contract for secure ERC20 token storage with deposit and withdrawal functionality",
+				"github": "https://github.com/yuri-xyz/erc20-vault",
+				"stack": ["Solidity", "Ethereum", "Smart Contracts", "Web3"]
+			}
+		]
+	}
 }

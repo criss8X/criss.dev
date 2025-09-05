@@ -1,24 +1,17 @@
-import * as contactEn from "@/locales/portfolio/contact-en";
-import * as contactEs from "@/locales/portfolio/contact-es";
-import * as metaEn from "@/locales/portfolio/meta-en";
-import * as metaEs from "@/locales/portfolio/meta-es";
-import * as portfolioEn from "@/locales/portfolio/portfolio-en";
-import * as portfolioEs from "@/locales/portfolio/portfolio-es";
 import * as servicesEn from "@/locales/portfolio/services-en";
 import * as servicesEs from "@/locales/portfolio/services-es";
 import * as skillsEn from "@/locales/portfolio/skills-en";
 import * as skillsEs from "@/locales/portfolio/skills-es";
 
-type Sites = "portfolio";
+type AnyLocale<L> = {
+	es: L;
+	en: L;
+};
 
-export function getLocaleBySite(site: Sites, lang: string) {
-	switch (site) {
-		case "portfolio": {
-			assertTypes(portfolioEn, portfolioEs);
+export function getLocalesByLang<L>(locales: AnyLocale<L>, lang?: string): L {
+	assertTypes(locales.en, locales.es);
 
-			return lang === "es" ? portfolioEs : portfolioEn;
-		}
-	}
+	return lang === "es" ? locales.es : locales.en;
 }
 
 export function getSkillsLocale(lang?: string) {
@@ -31,24 +24,6 @@ export function getServicesLocale(lang?: string) {
 	assertTypes(servicesEn, servicesEs);
 
 	return lang === "es" ? servicesEs : servicesEn;
-}
-
-export function getPortfolioLocale(lang?: string) {
-	assertTypes(portfolioEn, portfolioEs);
-
-	return lang === "es" ? portfolioEs : portfolioEn;
-}
-
-export function getContactLocale(lang?: string) {
-	assertTypes(contactEn, contactEs);
-
-	return lang === "es" ? contactEs : contactEn;
-}
-
-export function getMetaLocale(lang?: string) {
-	assertTypes(metaEn, metaEs);
-
-	return lang === "es" ? metaEs : metaEn;
 }
 
 function assertTypes(a: unknown, b: unknown) {

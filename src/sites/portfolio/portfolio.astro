@@ -7,13 +7,18 @@ import Hero from "@portfolio/sections/hero.astro";
 import Projects from "@portfolio/sections/projects.astro";
 import Services from "@portfolio/sections/services.astro";
 import Skills from "@portfolio/sections/skills.astro";
+import locales from "@/assets/content/meta.json";
 import Translator from "@/components/translator.astro";
-import { getMetaLocale } from "@/locales/locale";
+import { getLocalesByLang } from "@/locales/locale";
 
 import "@/styles/global.css";
 
 const lang = Astro.currentLocale;
-const { KEYWORDS, DESCRIPTION, CANONICAL, OG_LOCALE } = getMetaLocale(lang);
+
+const { canonical, description, keywords, og_locale } = getLocalesByLang(
+  locales,
+  lang,
+);
 ---
 
 <html lang={lang} class="dark">
@@ -26,9 +31,9 @@ const { KEYWORDS, DESCRIPTION, CANONICAL, OG_LOCALE } = getMetaLocale(lang);
     <meta name="description" content="Criss's portfolio" />
 
     <meta name="author" content="Cristian Carralero" />
-    <meta name="keywords" content={KEYWORDS} />
+    <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={CANONICAL} />
+    <link rel="canonical" href={canonical} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -41,21 +46,21 @@ const { KEYWORDS, DESCRIPTION, CANONICAL, OG_LOCALE } = getMetaLocale(lang);
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={CANONICAL} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content="Cristian - Fullstack & Web3" />
 
-    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:description" content={description} />
 
     <meta property="og:image" content="https://crisscode.xyz/og-image.png" />
 
     <meta property="og:site_name" content="Criss's Portfolio" />
-    <meta property="og:locale" content={OG_LOCALE} />
+    <meta property="og:locale" content={og_locale} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={CANONICAL} />
+    <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content="Cristian - Fullstack & Web3" />
-    <meta name="twitter:description" content={DESCRIPTION} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://crisscode.xyz/og-image.png" />
     <meta name="twitter:creator" content="@carralero706" />
 

@@ -1,14 +1,13 @@
 ---
-import { getPortfolioLocale } from "@/locales/locale";
+import locales from "@/assets/content/header.json";
+import { getLocalesByLang } from "@/locales/locale";
 
 export type NavItem = {
   name: string;
   id: string;
 };
 
-const { UI } = getPortfolioLocale(Astro.currentLocale);
-
-const navItems = UI.header.navItems;
+const { navItems } = getLocalesByLang(locales, Astro.currentLocale);
 ---
 
 <header

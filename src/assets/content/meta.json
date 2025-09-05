@@ -1,0 +1,15 @@
+{
+	"es": {
+		"keywords": "portafolio, desarrollador, full-stack, desarrollo web, programación, proyectos",
+		"description": "Portafolio de Cristian Carralero, desarrollador Full Stack y Web3 especializado en React, Typescript, Rust y Solidity.",
+		"canonical": "https://crisscode.xyz/es",
+		"og_locale": "es_ES"
+	},
+
+	"en": {
+		"keywords": "portfolio, developer, full-stack, web development, programming, projects",
+		"description": "Portfolio of Cristian Carralero, Full Stack and Web3 developer specialized in React, Typescript, Rust and Solidity.",
+		"canonical": "https://crisscode.xyz",
+		"og_locale": "en_US"
+	}
+}

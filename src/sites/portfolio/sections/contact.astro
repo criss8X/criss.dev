@@ -1,15 +1,14 @@
 ---
+import locales from "@/assets/content/contact.json";
 import Card from "@/components/card.astro";
 import { Github, Linkedin, Mail } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
 import Section from "@/components/section.astro";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { getContactLocale } from "@/locales/locale";
-
-const { UI } = getContactLocale(Astro.currentLocale);
+import { getLocalesByLang } from "@/locales/locale";
 
 const { sendMessageBtn, title, connectBtn, viewCodeBtn, contactDescription } =
-  UI;
+  getLocalesByLang(locales, Astro.currentLocale);
 
 const descHtml = parseHighlightsFromParagraph(contactDescription);
 ---

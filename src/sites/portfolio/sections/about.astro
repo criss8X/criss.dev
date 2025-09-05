@@ -1,13 +1,15 @@
 ---
+import locales from "@/assets/content/about.json";
 import Card from "@/components/card.astro";
 import { Clock, MapPin } from "@/components/icon.astro";
 import Section from "@/components/section.astro";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { getPortfolioLocale } from "@/locales/locale";
+import { getLocalesByLang } from "@/locales/locale";
 
-const { UI } = getPortfolioLocale(Astro.currentLocale);
-
-const { location, markdown, time, title } = UI.about;
+const { location, markdown, time, title } = getLocalesByLang(
+  locales,
+  Astro.currentLocale,
+);
 
 const paragraphHtml = parseHighlightsFromParagraph(markdown.paragraph);
 ---

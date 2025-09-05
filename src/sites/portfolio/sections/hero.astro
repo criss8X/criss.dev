@@ -1,13 +1,12 @@
 ---
+import locales from "@/assets/content/hero.json";
 import Badge from "@/components/badge.astro";
 import { ArrowRight } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
-import { getPortfolioLocale } from "@/locales/locale";
-
-const { UI } = getPortfolioLocale(Astro.currentLocale);
+import { getLocalesByLang } from "@/locales/locale";
 
 const { description, mainSkills, mainStack, contactButton, projectsButton } =
-  UI.hero;
+  getLocalesByLang(locales, Astro.currentLocale);
 ---
 
 <section class="container mx-auto max-w-6xl px-4 py-24 md:py-32">

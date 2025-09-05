@@ -1,0 +1,37 @@
+{
+	"es": {
+		"contactButton": "Trabajemos juntos",
+		"projectsButton": "Ver mi trabajo",
+
+		"mainStack": "Frontend • Backend • Web3",
+		"description": "Desarrollador Full Stack especializado en tecnologías modernas y blockchain",
+
+		"mainSkills": [
+			"TypeScript",
+			"React",
+			"Solidity",
+			"Rust",
+			"Next.js",
+			"PostgreSQL",
+			"Tailwind CSS"
+		]
+	},
+
+	"en": {
+		"contactButton": "Work Together",
+		"projectsButton": "View my work",
+
+		"mainStack": "Frontend • Backend • Web3",
+		"description": "Full Stack Developer specialized in modern technologies and blockchain",
+
+		"mainSkills": [
+			"TypeScript",
+			"React",
+			"Solidity",
+			"Rust",
+			"Next.js",
+			"PostgreSQL",
+			"Tailwind CSS"
+		]
+	}
+}
