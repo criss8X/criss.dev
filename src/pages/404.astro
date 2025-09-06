@@ -1,14 +1,36 @@
 ---
+import "@/styles/global.css";
+import locales from "@/assets/content/404.json";
+import LinkButton from "@/components/link.astro";
+import { getLocalesByLang } from "@/lib/locale";
 
+const { description, goBack, contact, metaDescription, title } =
+  getLocalesByLang(locales, Astro.currentLocale);
 ---
 
-<section class="text-center py-20">
-  <h1 class="text-5xl font-bold text-red-600">404</h1>
-  <p class="mt-4 text-lg">Oops... esta ruta no existe.</p>
-  <a
-    href="/"
-    class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+<html lang={Astro.currentLocale}>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="robots" content="noindex, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+  </head>
+
+  <body
+    class="min-h-screen bg-black text-white grid-pattern flex flex-col items-center justify-center"
   >
-    Volver al inicio
-  </a>
-</section>
+    <h1 class="text-6xl font-bold text-purple-400">404</h1>
+    <p class="mt-4 text-lg text-center">{description}</p>
+
+    <div class="flex flex-col gap-2 w-full max-w-sm mt-6">
+      <LinkButton href="/" variant="outline">{goBack}</LinkButton>
+      <LinkButton href="/#contact" variant="outline">{contact}</LinkButton>
+    </div>
+  </body>
+</html>

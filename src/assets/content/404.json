@@ -1,0 +1,17 @@
+{
+	"es": {
+		"title": "Página no encontrada - Criss.dev",
+		"metaDescription": "La página que buscas no existe. Vuelve al inicio o contáctame si necesitas ayuda.",
+		"goBack": "Volver al inicio",
+		"contact": "Contáctame",
+		"description": "Oops... esta ruta no existe."
+	},
+
+	"en": {
+		"title": "Page not found - Criss.dev",
+		"metaDescription": "The page you're looking for doesn't exist. Return to the homepage or contact me if you need assistance.",
+		"goBack": "Go back to home",
+		"contact": "Contact me",
+		"description": "Oops... this route does not exist."
+	}
+}
