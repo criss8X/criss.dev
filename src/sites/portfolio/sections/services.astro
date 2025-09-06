@@ -11,6 +11,13 @@ import {
 import Section from "@/components/section.astro";
 import { getLocalesByLang } from "@/lib/locale";
 
+type Service = {
+  title: string;
+  description: string;
+  features: string[];
+  icon: LucideIcon;
+};
+
 const { services, title } = getLocalesByLang(locales, Astro.currentLocale);
 
 const IconPack: Record<string, LucideIcon> = {
@@ -18,42 +25,45 @@ const IconPack: Record<string, LucideIcon> = {
   Shield,
   Code,
 };
+
+const SERVICES: Service[] = services.map((service) => ({
+  ...service,
+  icon: IconPack[service.icon],
+}));
 ---
 
 <Section id="services" title={title} className="max-w-6xl">
   <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
     {
-      services
-        .map((service) => ({ ...service, icon: IconPack[service.icon] }))
-        .map(({ description, features, title, icon: Icon }) => (
-          <Card className="overflow-hidden">
-            <Card variant="header" className="text-center">
-              <div class="mx-auto mb-4 p-3 bg-purple-600/20 rounded-lg w-fit">
-                <Icon class="size-8 text-purple-400" />
-              </div>
+      SERVICES.map(({ description, features, title, icon: Icon }) => (
+        <Card className="overflow-hidden">
+          <Card variant="header" className="text-center">
+            <div class="mx-auto mb-4 p-3 bg-purple-600/20 rounded-lg w-fit">
+              <Icon class="size-8 text-purple-400" />
+            </div>
 
-              <Card variant="title" className="font-console text-xl">
-                {title}
-              </Card>
-
-              <Card variant="description" className="text-base">
-                {description}
-              </Card>
+            <Card variant="title" className="font-console text-xl">
+              {title}
             </Card>
 
-            <Card variant="content" className="space-y-2">
-              <ul class="flex flex-col flex-wrap gap-2 md:space-y-2">
-                {features.map((feature) => (
-                  <li class="flex items-center gap-2 text-sm truncate">
-                    <CheckCircle class="h-4 w-4 text-green-400" />
-
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+            <Card variant="description" className="text-base">
+              {description}
             </Card>
           </Card>
-        ))
+
+          <Card variant="content" className="space-y-2">
+            <ul class="flex flex-col flex-wrap gap-2 md:space-y-2">
+              {features.map((feature) => (
+                <li class="flex items-center gap-2 text-sm truncate">
+                  <CheckCircle class="h-4 w-4 text-green-400" />
+
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </Card>
+      ))
     }
   </div>
 </Section>
