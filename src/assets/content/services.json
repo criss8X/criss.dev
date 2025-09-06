@@ -1,0 +1,103 @@
+{
+	"es": {
+		"title": "Servicios",
+		"services": [
+			{
+				"title": "Desarrollo Full Stack",
+				"description": "Aplicaciones web completas desde el frontend hasta la base de datos",
+				"features": [
+					"React/Next.js & TypeScript",
+					"Node.js/Fastify APIs",
+					"PostgreSQL & Drizzle ORM",
+					"Tailwind CSS & UI/UX",
+					"Cloudflare Workers",
+					"Testing & CI/CD",
+					"SEO & Performance",
+					"Responsive Design"
+				],
+				"icon": "Code"
+			},
+			{
+				"title": "Smart Contracts & Web3",
+				"description": "Contratos inteligentes seguros y aplicaciones descentralizadas",
+				"features": [
+					"Solidity & Vyper",
+					"Auditorías de seguridad",
+					"Testing exhaustivo",
+					"Deployment & Verificación",
+					"Viem & Wagmi integration",
+					"Rainbowkit wallets",
+					"IPFS & descentralización",
+					"Gas optimization"
+				],
+				"icon": "Shield"
+			},
+			{
+				"title": "Consultoría & Mentoring",
+				"description": "Arquitectura, optimización y mejores prácticas para tu equipo",
+				"features": [
+					"Code Review & Refactoring",
+					"Arquitectura de software",
+					"Mentoring técnico",
+					"DevOps & GitHub Actions",
+					"Performance optimization",
+					"Best practices",
+					"Team leadership",
+					"Technical documentation"
+				],
+				"icon": "Rocket"
+			}
+		]
+	},
+
+	"en": {
+		"title": "Services",
+		"services": [
+			{
+				"title": "Full Stack Development",
+				"description": "Complete web applications from frontend to database",
+				"features": [
+					"React/Next.js & TypeScript",
+					"Node.js/Fastify APIs",
+					"PostgreSQL & Drizzle ORM",
+					"Tailwind CSS & UI/UX",
+					"Cloudflare Workers",
+					"Testing & CI/CD",
+					"SEO & Performance",
+					"Responsive Design"
+				],
+				"icon": "Code"
+			},
+			{
+				"title": "Smart Contracts & Web3",
+				"description": "Secure smart contracts and decentralized applications",
+				"features": [
+					"Solidity & Vyper",
+					"Security audits",
+					"Comprehensive testing",
+					"Deployment & Verification",
+					"Viem & Wagmi integration",
+					"Rainbowkit wallets",
+					"IPFS & decentralization",
+					"Gas optimization"
+				],
+				"icon": "Shield"
+			},
+			{
+				"title": "Consulting & Mentoring",
+				"description": "Architecture, optimization, and best practices for your team",
+				"features": [
+					"Code Review & Refactoring",
+					"Software architecture",
+					"Technical mentoring",
+					"DevOps & GitHub Actions",
+					"Performance optimization",
+					"Best practices",
+					"Team leadership",
+					"Technical documentation"
+				],
+				"icon": "Rocket"
+			}
+		]
+	}
+}

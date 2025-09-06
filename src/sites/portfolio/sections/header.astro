@@ -1,6 +1,6 @@
 ---
 import locales from "@/assets/content/header.json";
-import { getLocalesByLang } from "@/locales/locale";
+import { getLocalesByLang } from "@/lib/locale";
 
 export type NavItem = {
   name: string;
@@ -38,3 +38,9 @@ const { navItems } = getLocalesByLang(locales, Astro.currentLocale);
     </div>
   </div>
 </header>
+
+<style is:inline>
+  .lucide {
+    color: red;
+  }
+</style>

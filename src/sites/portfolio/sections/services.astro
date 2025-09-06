@@ -1,44 +1,59 @@
 ---
+import locales from "@/assets/content/services.json";
 import Card from "@/components/card.astro";
-import { CheckCircle } from "@/components/icon.astro";
+import {
+  CheckCircle,
+  Code,
+  type LucideIcon,
+  Rocket,
+  Shield,
+} from "@/components/icon.astro";
 import Section from "@/components/section.astro";
-import { getServicesLocale } from "@/locales/locale";
+import { getLocalesByLang } from "@/lib/locale";
 
-const { SERVICES, UI } = getServicesLocale(Astro.currentLocale);
+const { services, title } = getLocalesByLang(locales, Astro.currentLocale);
+
+const IconPack: Record<string, LucideIcon> = {
+  Rocket,
+  Shield,
+  Code,
+};
 ---
 
-<Section id="services" title={UI.title} className="max-w-6xl">
+<Section id="services" title={title} className="max-w-6xl">
   <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
     {
-      SERVICES.map(({ description, features, title, icon: Icon }) => (
-        <Card className="overflow-hidden">
-          <Card variant="header" className="text-center">
-            <div class="mx-auto mb-4 p-3 bg-purple-600/20 rounded-lg w-fit">
-              <Icon class="size-8 text-purple-400" />
-            </div>
+      services
+        .map((service) => ({ ...service, icon: IconPack[service.icon] }))
+        .map(({ description, features, title, icon: Icon }) => (
+          <Card className="overflow-hidden">
+            <Card variant="header" className="text-center">
+              <div class="mx-auto mb-4 p-3 bg-purple-600/20 rounded-lg w-fit">
+                <Icon class="size-8 text-purple-400" />
+              </div>
 
-            <Card variant="title" className="font-console text-xl">
-              {title}
+              <Card variant="title" className="font-console text-xl">
+                {title}
+              </Card>
+
+              <Card variant="description" className="text-base">
+                {description}
+              </Card>
             </Card>
 
-            <Card variant="description" className="text-base">
-              {description}
+            <Card variant="content" className="space-y-2">
+              <ul class="flex flex-col flex-wrap gap-2 md:space-y-2">
+                {features.map((feature) => (
+                  <li class="flex items-center gap-2 text-sm truncate">
+                    <CheckCircle class="h-4 w-4 text-green-400" />
+
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </Card>
           </Card>
-
-          <Card variant="content" className="space-y-2">
-            <ul class="flex flex-col flex-wrap gap-2 md:space-y-2">
-              {features.map((feature) => (
-                <li class="flex items-center gap-2 text-sm truncate">
-                  <CheckCircle class="h-4 w-4 text-green-400" />
-
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </Card>
-      ))
+        ))
     }
   </div>
 </Section>

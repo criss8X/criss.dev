@@ -1,41 +1,58 @@
 ---
+import locales from "@/assets/content/skills.json";
 import Badge from "@/components/badge.astro";
 import Card from "@/components/card.astro";
+import {
+  Github,
+  type LucideIcon,
+  Palette,
+  Terminal,
+  Zap,
+} from "@/components/icon.astro";
 import Section from "@/components/section.astro";
-import { getSkillsLocale } from "@/locales/locale";
+import { getLocalesByLang } from "@/lib/locale";
 
-const { SKILLS, UI } = getSkillsLocale(Astro.currentLocale);
+const { skills, title } = getLocalesByLang(locales, Astro.currentLocale);
+
+const IconPack: Record<string, LucideIcon> = {
+  Palette,
+  Zap,
+  Terminal,
+  Github,
+};
 ---
 
-<Section id="skills" title={UI.title} className="max-w-6xl">
+<Section id="skills" title={title} className="max-w-6xl">
   <div class="grid md:grid-cols-2 gap-8">
     {
-      SKILLS.map(({ title, description, stack, icon: Icon }) => (
-        <Card>
-          <Card variant="header" className="text-center">
-            <Card
-              variant="title"
-              className="flex items-center justify-center gap-3  text-xl"
-            >
-              <Icon class="size-6 text-purple-400" />
+      skills
+        .map((skill) => ({ ...skill, icon: IconPack[skill.icon] }))
+        .map(({ title, description, stack, icon: Icon }) => (
+          <Card>
+            <Card variant="header" className="text-center">
+              <Card
+                variant="title"
+                className="flex items-center justify-center gap-3  text-xl"
+              >
+                <Icon class="size-6 text-purple-400" />
 
-              {title}
+                {title}
+              </Card>
+
+              <Card variant="description" className="text-base">
+                {description}
+              </Card>
             </Card>
 
-            <Card variant="description" className="text-base">
-              {description}
+            <Card variant="content">
+              <div class="flex flex-wrap gap-2 justify-center">
+                {stack.map((item) => (
+                  <Badge>{item}</Badge>
+                ))}
+              </div>
             </Card>
           </Card>
-
-          <Card variant="content">
-            <div class="flex flex-wrap gap-2 justify-center">
-              {stack.map((item) => (
-                <Badge>{item}</Badge>
-              ))}
-            </div>
-          </Card>
-        </Card>
-      ))
+        ))
     }
   </div>
 </Section>

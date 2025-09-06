@@ -4,8 +4,8 @@ import Card from "@/components/card.astro";
 import { Github, Linkedin, Mail } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
 import Section from "@/components/section.astro";
+import { getLocalesByLang } from "@/lib/locale";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { getLocalesByLang } from "@/locales/locale";
 
 const { sendMessageBtn, title, connectBtn, viewCodeBtn, contactDescription } =
   getLocalesByLang(locales, Astro.currentLocale);

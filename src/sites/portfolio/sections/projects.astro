@@ -1,14 +1,19 @@
 ---
+import locales from "@/assets/content/projects.json";
 import Badge from "@/components/badge.astro";
 import Card from "@/components/card.astro";
 import { ExternalLink, Github } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
 import Section from "@/components/section.astro";
-import { getPortfolioLocale } from "@/locales/locale";
+import { getLocalesByLang } from "@/lib/locale";
+import type { Project } from "@/lib/type";
 
-const { UI, PROJECTS } = getPortfolioLocale(Astro.currentLocale);
+const { previewBtn, title, projects } = getLocalesByLang(
+  locales,
+  Astro.currentLocale,
+);
 
-const { previewBtn, title } = UI.projects;
+const PROJECTS: Project[] = projects;
 ---
 
 <Section id="projects" title={title} className="max-w-6xl">

@@ -3,8 +3,8 @@ import locales from "@/assets/content/about.json";
 import Card from "@/components/card.astro";
 import { Clock, MapPin } from "@/components/icon.astro";
 import Section from "@/components/section.astro";
+import { getLocalesByLang } from "@/lib/locale";
 import { parseHighlightsFromParagraph } from "@/lib/markdown";
-import { getLocalesByLang } from "@/locales/locale";
 
 const { location, markdown, time, title } = getLocalesByLang(
   locales,

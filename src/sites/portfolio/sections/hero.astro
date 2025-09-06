@@ -3,7 +3,7 @@ import locales from "@/assets/content/hero.json";
 import Badge from "@/components/badge.astro";
 import { ArrowRight } from "@/components/icon.astro";
 import LinkButton from "@/components/link.astro";
-import { getLocalesByLang } from "@/locales/locale";
+import { getLocalesByLang } from "@/lib/locale";
 
 const { description, mainSkills, mainStack, contactButton, projectsButton } =
   getLocalesByLang(locales, Astro.currentLocale);
